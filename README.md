@@ -9,7 +9,7 @@ Additionally, HireScope AI includes a specialized, high-performance rule-based r
 ## 🛠️ Architecture & Core Components
 
 ```
-AI&DS CHALLENGE/
+HireScope-AI/
 ├── app.py                      # Main Streamlit dashboard application (w/ Hackathon Mode)
 ├── rank.py                     # CLI Entrypoint for the Hackathon Ranker (100K candidates)
 ├── requirements.txt            # Project dependencies
@@ -80,7 +80,7 @@ python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk
 ### 3. Run the CLI Hackathon Ranker
 To rank the 100,000-candidate pool and generate your submission CSV:
 ```bash
-python rank.py --candidates "../[PUB] India_runs_data_and_ai_challenge/India_runs_data_and_ai_challenge/candidates.jsonl" --out submission.csv --verbose
+python rank.py --candidates ./candidates.jsonl --out ./submission.csv --verbose
 ```
 
 ### 4. Run the Streamlit Dashboard

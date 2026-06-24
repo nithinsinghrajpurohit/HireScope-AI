@@ -18,7 +18,7 @@ team_members:
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
-github_repo: "https://github.com/nithinsr/redrob-candidate-ranker"
+github_repo: "https://github.com/nithinsinghrajpurohit/HireScope-AI"
 sandbox_link: "https://redrob-hirescope-ai.streamlit.app"
 
 reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
