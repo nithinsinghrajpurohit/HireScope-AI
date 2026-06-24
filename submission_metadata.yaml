@@ -1,0 +1,65 @@
+# Redrob Hackathon — Submission Metadata
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "HireScope AI"
+
+primary_contact:
+  name: "Nithin"
+  email: "nithinsinghrajpurohit@gmail.com"
+  phone: "+91-XXXXXXXXXX"
+
+team_members:
+  - name: "Nithin"
+    email: "nithinsinghrajpurohit@gmail.com"
+    role: "Lead Developer"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/nithinsr/redrob-candidate-ranker"
+sandbox_link: "https://redrob-hirescope-ai.streamlit.app"
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Local Windows PC"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.10.12"
+  os: "Windows 11"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Gemini"
+  - "Cursor"
+
+ai_usage_summary: |
+  Used Gemini for code review, refactoring, and UI enhancements. Used Cursor for autocomplete.
+  No candidate data was shared with external API endpoints during the scoring execution.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  Multi-signal rule-based ranking engine with 5 weighted dimensions (Skills 35%, Title/Career 25%, Experience 15%, Education 10%, Behavioral 15%). Includes a Jaccard-based company diversity deduplication filter, a dynamic regex JD parser, fuzzy skill canonical matching, and custom time-decay recency weighting for skills. The engine filters out honeypot profiles via 9 consistency checks (Temporal, Academic, Salary, Career duration) and penalizes keyword stuffing using a proficiency-duration-endorsement trust multiplier.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true

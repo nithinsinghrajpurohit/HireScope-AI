@@ -1,0 +1,29 @@
+EVE WHITE
+Email: eve.white@email.com
+Phone: +1 (555) 012-3456
+LinkedIn: linkedin.com/in/evewhite-junior
+
+SUMMARY
+Enthusiastic and motivated recent Computer Science graduate seeking an entry-level software engineering position. Eager to apply academic knowledge of Python, basic data structures, and database principles in a collaborative development team.
+
+TECHNICAL SKILLS
+Languages: Python, HTML, CSS, SQL
+Web Development: Basic Django, Git, VS Code
+Concepts: Data Structures, Algorithms, OOP
+
+WORK EXPERIENCE
+IT Assistant (Student Worker)
+University Computer Labs | 2023 - 2024
+- Assisted students with general troubleshooting, logging, and software installations.
+- Managed user accounts and security updates.
+
+EDUCATION
+Associate of Applied Science in Computer Technology
+Community College of Denver | 2022 - 2024
+- GPA: 3.8/4.0
+- Academic projects: Library Management System in Python.
+
+PROJECTS
+Library Management App
+- Built a command-line utility in Python to catalog, checkout, and search books.
+- Stored data in a local SQLite database using basic SQL statements.

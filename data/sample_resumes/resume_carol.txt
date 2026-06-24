@@ -1,0 +1,36 @@
+CAROL DAVIS
+Email: carol.davis@email.com
+Phone: +1 (555) 087-6543
+LinkedIn: linkedin.com/in/caroldavis-web
+
+SUMMARY
+Enthusiastic Web Developer with 3 years of experience building modern web applications. Expert in front-end frameworks like React and back-end services with Node.js and TypeScript.
+
+TECHNICAL SKILLS
+Web Stack: React, Next.js, HTML5, CSS3, Tailwind CSS
+Languages: JavaScript, TypeScript, SQL
+Backend: Node.js, Express, REST APIs
+Databases: MongoDB, MySQL
+DevOps: Git, CI/CD, GitHub Actions
+
+WORK EXPERIENCE
+Full Stack Web Engineer
+WebFlow Solutions | 2022 - Present
+- Designed and built responsive web applications using React and Next.js.
+- Developed scalable REST APIs using Node.js and Express, integrated with MongoDB databases.
+- Automated CI/CD deployment pipelines using GitHub Actions.
+- Mentored junior engineers and conducted code reviews.
+
+Front-End Developer
+PixelPerfect Studio | 2021 - 2022
+- Translated design mockups into functional web layouts using HTML, CSS, JavaScript, and Bootstrap.
+- Optimized frontend performance to improve page speed scores.
+
+EDUCATION
+Bachelor of Science in Software Engineering
+Metropolitan University | 2017 - 2021
+
+PROJECTS
+E-Commerce Portal
+- Built a full-stack e-commerce app using React, Next.js, and Node.js with payment gateway integration.
+- Configured state management using Redux.

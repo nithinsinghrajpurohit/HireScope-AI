@@ -1,0 +1,38 @@
+ALICE SMITH
+Email: alice.smith@email.com
+Phone: +1 (555) 019-2834
+LinkedIn: linkedin.com/in/alicesmith-dev
+
+SUMMARY
+Dedicated and detail-oriented Software Engineer with 4 years of experience specializing in Machine Learning and Python backend development. Proven track record of designing and deploying predictive models in production environments and building robust data pipelines.
+
+TECHNICAL SKILLS
+Programming: Python, SQL, C++
+Data Science: Machine Learning, Scikit-Learn, Pandas, NumPy, TensorFlow
+Frameworks: Flask, FastAPI, Django
+Tools: Git, Docker, VS Code
+
+WORK EXPERIENCE
+Software Engineer (ML focus)
+TechCorp Solutions | 2022 - Present
+- Led the migration of legacy recommendation models to Python-based TensorFlow systems, improving click-through rate by 15%.
+- Built high-performance REST APIs using FastAPI and Flask to serve real-time predictions.
+- Maintained complex SQL database queries and ETL data pipelines using Pandas and NumPy.
+- Used Git and Docker for version control and containerized deployments in production.
+
+Software Developer
+DevBuilders Co. | 2020 - 2022
+- Developed Python scripting utilities to automate system diagnostics.
+- Wrote web applications using Django and PostgreSQL.
+- Collaborated in an agile scrum team to deliver software features on schedule.
+
+EDUCATION
+Bachelor of Science in Computer Science
+University of Technology | 2016 - 2020
+- Graduated with Honors
+- Core coursework: Data Structures, Algorithms, Machine Learning, Database Management.
+
+PROJECTS
+Smart Forecast System
+- Developed a machine learning system in Python using Scikit-Learn to forecast inventory demand.
+- Visualized results using Matplotlib and deployed on a local server.

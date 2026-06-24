@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Streamlit
+.streamlit/config.toml
+.streamlit/secrets.toml
+
+# Datasets (Large Files - Do NOT push to GitHub)
+candidates.jsonl
+candidates.jsonl.gz
+sample_candidates.json
+job_description.docx
+
+# Submissions (It is OK to push submission.csv)
+!submission.csv
