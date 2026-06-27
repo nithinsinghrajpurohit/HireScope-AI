@@ -1,8 +1,9 @@
 """
-Reusable, visually-stunning Streamlit UI components.
-"Minimal Luxe" edition — implements candidate summary cards, skill tag pills,
-comparison tables, and other visual building blocks with a premium
-gold-accented, Apple-inspired aesthetic.
+Reusable Streamlit UI components for HireScope AI.
+"Resume Checker" edition — clean, high-contrast text hierarchy inspired by
+professional ATS/resume scanner dashboards. Uses crisp labels, color-coded
+status indicators (✅/⚠️/❌), bold section headers, and readable data-first
+formatting with clear visual weight differences.
 """
 
 import streamlit as st
@@ -11,48 +12,23 @@ from utils.constants import APP_TITLE, APP_ICON, APP_DESCRIPTION
 
 
 def header_banner():
-    """Render the main application header banner with Minimal Luxe styling and inline SVG logo."""
-    # Inline SVG: A scope/crosshair + AI brain icon in gold
+    """Render the main application header banner with Resume Checker styling."""
     logo_svg = '''
-    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 12px; filter: drop-shadow(0 2px 8px rgba(212,165,116,0.35));">
-        <!-- Outer ring -->
-        <circle cx="26" cy="26" r="23" stroke="url(#gold_grad)" stroke-width="2.5" fill="none" opacity="0.9"/>
-        <!-- Inner ring -->
-        <circle cx="26" cy="26" r="14" stroke="url(#gold_grad)" stroke-width="1.5" fill="rgba(212,165,116,0.06)" opacity="0.8"/>
-        <!-- Crosshair lines -->
-        <line x1="26" y1="2" x2="26" y2="12" stroke="#D4A574" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-        <line x1="26" y1="40" x2="26" y2="50" stroke="#D4A574" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-        <line x1="2" y1="26" x2="12" y2="26" stroke="#D4A574" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-        <line x1="40" y1="26" x2="50" y2="26" stroke="#D4A574" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-        <!-- Center dot / AI core -->
-        <circle cx="26" cy="26" r="4" fill="url(#gold_grad)"/>
-        <!-- Neural dots -->
-        <circle cx="20" cy="20" r="1.8" fill="#D4A574" opacity="0.6"/>
-        <circle cx="32" cy="20" r="1.8" fill="#D4A574" opacity="0.6"/>
-        <circle cx="20" cy="32" r="1.8" fill="#D4A574" opacity="0.6"/>
-        <circle cx="32" cy="32" r="1.8" fill="#D4A574" opacity="0.6"/>
-        <!-- Neural connections -->
-        <line x1="22" y1="22" x2="24" y2="24" stroke="#D4A574" stroke-width="1" opacity="0.4"/>
-        <line x1="30" y1="22" x2="28" y2="24" stroke="#D4A574" stroke-width="1" opacity="0.4"/>
-        <line x1="22" y1="30" x2="24" y2="28" stroke="#D4A574" stroke-width="1" opacity="0.4"/>
-        <line x1="30" y1="30" x2="28" y2="28" stroke="#D4A574" stroke-width="1" opacity="0.4"/>
-        <defs>
-            <linearGradient id="gold_grad" x1="0" y1="0" x2="52" y2="52">
-                <stop offset="0%" stop-color="#F5E6D3"/>
-                <stop offset="50%" stop-color="#D4A574"/>
-                <stop offset="100%" stop-color="#C49660"/>
-            </linearGradient>
-        </defs>
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 14px;">
+        <rect x="2" y="2" width="44" height="44" rx="12" stroke="#D4AF37" stroke-width="2.5" fill="rgba(212,175,55,0.06)"/>
+        <path d="M16 16h16M16 24h12M16 32h8" stroke="#F3E5AB" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="36" cy="32" r="6" stroke="#D4AF37" stroke-width="2" fill="rgba(212,175,55,0.1)"/>
+        <path d="M39 35l3 3" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
     </svg>
     '''
     st.markdown(
         f"""
         <div class="header-container">
             <div class="header-title">{logo_svg}{APP_TITLE}</div>
-            <div class="header-subtitle" style="font-family: 'Space Grotesk', sans-serif;">{APP_DESCRIPTION}</div>
-            <div style="margin-top: 0.8rem;">
-                <span style="background: rgba(168,195,160,0.12); color: #A8C3A0; border: 1px solid rgba(168,195,160,0.3); padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px;">v2.0 — AI-Powered</span>
-                <span style="background: rgba(212,165,116,0.1); color: #D4A574; border: 1px solid rgba(212,165,116,0.25); padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px; margin-left: 0.5rem;">Redrob Hackathon</span>
+            <div class="header-subtitle">{APP_DESCRIPTION}</div>
+            <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 0.6rem;">
+                <span class="status-chip" style="background: rgba(212, 175, 55, 0.12); color: #F3E5AB; border: 1px solid rgba(212, 175, 55, 0.25);">✦ AI-Powered v2.0</span>
+                <span class="status-chip" style="background: rgba(197, 160, 89, 0.12); color: #C5A059; border: 1px solid rgba(197, 160, 89, 0.25);">⚡ Redrob Hackathon</span>
             </div>
         </div>
         """,
@@ -61,7 +37,7 @@ def header_banner():
 
 
 def metric_card(label: str, value: str, column):
-    """Render a modern metric card with gold accents inside a streamlit column."""
+    """Render a metric card with clear label/value hierarchy."""
     with column:
         st.markdown(
             f"""
@@ -79,7 +55,6 @@ def render_skill_tag(skill_name: str) -> str:
     info = get_skill_info(skill_name)
     category = info.get("category", "Other") if info else "Other"
 
-    # Class mapping based on CSS categories
     class_map = {
         "Programming": "tag-programming",
         "Frameworks": "tag-frameworks",
@@ -97,7 +72,7 @@ def render_skill_tag(skill_name: str) -> str:
     css_class = class_map.get(category, "tag-other")
     display_name = skill_name.title()
     if len(display_name) <= 4:
-        display_name = display_name.upper()  # Keep acronyms caps
+        display_name = display_name.upper()
 
     return f'<span class="skill-tag {css_class}">{display_name}</span>'
 
@@ -105,21 +80,19 @@ def render_skill_tag(skill_name: str) -> str:
 def render_skill_tags(skills: list[str]) -> str:
     """Convert a list of skills into a contiguous string of HTML tags."""
     if not skills:
-        return '<span style="color: #A09890; font-size: 0.85rem; font-style: italic;">None detected</span>'
+        return '<span class="rc-dim">None detected</span>'
     return "".join(render_skill_tag(s) for s in skills)
 
 
 def render_candidate_card(rank: int, name: str, score: float, file_name: str, matched: list[str], exp_years: float, rec_text: str = "", rec_style: str = "") -> str:
-    """Generate HTML for a candidate rank listing card with luxury styling."""
-    # Build list of top 3 skills to display
+    """Generate HTML for a candidate rank listing card — resume checker style."""
     skills_slice = matched[:3]
     skills_html = render_skill_tags(skills_slice)
     if len(matched) > 3:
-        skills_html += f'<span style="color: #A09890; font-size: 0.8rem; margin-left: 0.3rem;">+{len(matched)-3} more</span>'
+        skills_html += f'<span class="rc-dim" style="margin-left: 0.3rem;">+{len(matched)-3} more</span>'
 
     exp_text = f"{exp_years:.1f} yr{'s' if exp_years != 1 else ''}" if exp_years > 0 else "Entry Level"
 
-    # Rank badge styling — gold for #1, silver for #2, bronze for #3
     badge_class = ""
     if rank == 1:
         badge_class = " rank-badge-gold"
@@ -128,61 +101,76 @@ def render_candidate_card(rank: int, name: str, score: float, file_name: str, ma
     elif rank == 3:
         badge_class = " rank-badge-bronze"
 
-    rec_badge = f'<span style="padding: 0.25rem 0.6rem; border-radius: 12px; font-size: 0.75rem; font-weight: 700; {rec_style}">{rec_text}</span>' if rec_text else ""
+    # Score-based status color
+    if score >= 75:
+        score_class = "score-high"
+    elif score >= 50:
+        score_class = "score-mid"
+    else:
+        score_class = "score-low"
+
+    rec_badge = f'<span class="rec-badge" style="{rec_style}">{rec_text}</span>' if rec_text else ""
 
     return f"""
     <div class="candidate-rank-card">
-        <div style="display: flex; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 1rem;">
             <div class="rank-badge{badge_class}">#{rank}</div>
             <div>
-                <div style="font-weight: 600; font-size: 1.1rem; color: #F5E6D3; font-family: 'Playfair Display', Georgia, serif;">{name}</div>
-                <div style="font-size: 0.8rem; color: #A09890; margin-top: 0.15rem;">
-                    📄 {file_name} • 💼 {exp_text}
+                <div class="rc-name">{name}</div>
+                <div class="rc-meta">
+                    <span class="rc-label">File:</span> <span class="rc-value">{file_name}</span>
+                    <span class="rc-sep">|</span>
+                    <span class="rc-label">Exp:</span> <span class="rc-value">{exp_text}</span>
                 </div>
             </div>
         </div>
-        <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="display: none; @media(min-width: 768px){{ display: block; }}">{skills_html}</div>
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+            {skills_html}
             {rec_badge}
-            <div class="score-pill">{score:.1f}% Match</div>
+            <div class="score-pill {score_class}">{score:.1f}%</div>
         </div>
     </div>
     """
 
 
 def score_breakdown_bars(score_dict: dict):
-    """Render a visual breakdown of scores as elegant progressive bars."""
-    labels = {
-        "skill_match": "🎯 Skill Overlap Match (40%)",
-        "semantic": "🧠 Semantic Context Match (25%)",
-        "experience": "💼 Experience Requirement Match (20%)",
-        "education": "🎓 Education Level Fit (10%)",
-        "bonus": "🎁 Nice-to-have / Bonus Skills (5%)",
-    }
+    """Render score breakdown with resume-checker-style labeled progress bars."""
+    dimensions = [
+        ("skill_match",  "Skill Match",    "40%", "🎯"),
+        ("semantic",     "Semantic Fit",   "25%", "🧠"),
+        ("experience",   "Experience",     "20%", "💼"),
+        ("education",    "Education",      "10%", "🎓"),
+        ("bonus",        "Bonus Skills",   "5%",  "⭐"),
+    ]
 
-    for key, label in labels.items():
+    for key, label, weight, icon in dimensions:
         val = score_dict.get(key, 0.0)
 
-        # Luxury palette: emerald-sage for high, warm gold for mid, muted rose for low
         if val >= 70:
-            color = "#A8C3A0"       # Sage green
-            glow = "rgba(168, 195, 160, 0.3)"
+            bar_color = "#22C55E"
+            status = "PASS"
+            status_class = "status-pass"
         elif val >= 40:
-            color = "#D4A574"       # Gold
-            glow = "rgba(212, 165, 116, 0.3)"
+            bar_color = "#F59E0B"
+            status = "FAIR"
+            status_class = "status-warn"
         else:
-            color = "#D4756A"       # Muted rose
-            glow = "rgba(212, 117, 106, 0.3)"
+            bar_color = "#EF4444"
+            status = "LOW"
+            status_class = "status-fail"
 
         st.markdown(
             f"""
-            <div style="margin-bottom: 0.9rem;">
-                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #A09890; margin-bottom: 0.25rem;">
-                    <span>{label}</span>
-                    <span style="font-weight: 600; color: #F5E6D3;">{val:.1f}%</span>
+            <div class="rc-bar-row">
+                <div class="rc-bar-header">
+                    <span class="rc-bar-label">{icon} {label} <span class="rc-weight">{weight}</span></span>
+                    <span class="rc-bar-score">
+                        <span class="rc-score-num">{val:.1f}%</span>
+                        <span class="status-chip {status_class}" style="font-size: 0.6rem; padding: 0.1rem 0.4rem;">{status}</span>
+                    </span>
                 </div>
-                <div style="background-color: rgba(255, 255, 255, 0.04); height: 5px; border-radius: 3px; overflow: hidden;">
-                    <div style="background: {color}; width: {val}%; height: 100%; border-radius: 3px; box-shadow: 0 0 8px {glow}; transition: width 0.6s ease;"></div>
+                <div class="rc-bar-track">
+                    <div class="rc-bar-fill" style="width: {val}%; background: {bar_color};"></div>
                 </div>
             </div>
             """,
@@ -197,7 +185,7 @@ def render_html_table(html_str: str):
 
 
 def comparison_matrix(ranked_candidates):
-    """Render a side-by-side tabular comparison of candidates."""
+    """Render a tabular comparison of candidates — resume checker style."""
     if not ranked_candidates:
         return
 
@@ -208,7 +196,6 @@ def comparison_matrix(ranked_candidates):
             matched_str += f" (+{len(c.matched_skills)-5})"
 
         edu = c.resume_data.sections.get("education", "")
-        # Extract first non-empty line of education for summary
         edu_line = "Not found"
         if edu:
             lines = [l.strip() for l in edu.split("\n") if l.strip()]
@@ -217,15 +204,24 @@ def comparison_matrix(ranked_candidates):
                 if len(edu_line) > 35:
                     edu_line = edu_line[:32] + "..."
 
+        # Score status
+        sc = c.overall_score
+        if sc >= 75:
+            score_html = f'<span class="status-chip status-pass">{sc:.1f}%</span>'
+        elif sc >= 50:
+            score_html = f'<span class="status-chip status-warn">{sc:.1f}%</span>'
+        else:
+            score_html = f'<span class="status-chip status-fail">{sc:.1f}%</span>'
+
         table_rows.append(
             f"""
             <tr>
-                <td><strong style="color: #D4A574;">#{rank}</strong></td>
-                <td><span style="color: #F5E6D3; font-weight: 600; font-family: 'Playfair Display', Georgia, serif;">{c.candidate_name}</span></td>
-                <td><span class="score-pill" style="padding: 0.1rem 0.5rem; font-size: 0.8rem;">{c.overall_score:.1f}%</span></td>
-                <td>{c.experience_years:.1f} Yrs</td>
-                <td>{edu_line}</td>
-                <td>{matched_str or '<span style="color:#D4756A">None</span>'}</td>
+                <td><span class="rc-rank">#{rank}</span></td>
+                <td><span class="rc-name-sm">{c.candidate_name}</span></td>
+                <td>{score_html}</td>
+                <td class="rc-value">{c.experience_years:.1f} Yrs</td>
+                <td class="rc-dim">{edu_line}</td>
+                <td class="rc-dim">{matched_str or '<span class="status-chip status-fail">None</span>'}</td>
             </tr>
             """
         )
@@ -237,12 +233,12 @@ def comparison_matrix(ranked_candidates):
         <table class="compare-table">
             <thead>
                 <tr>
-                    <th style="width: 8%">Rank</th>
-                    <th style="width: 22%">Candidate Name</th>
-                    <th style="width: 15%">Overall Score</th>
-                    <th style="width: 15%">Experience</th>
-                    <th style="width: 20%">Education Level</th>
-                    <th style="width: 20%">Top Matched Skills</th>
+                    <th style="width: 8%">#</th>
+                    <th style="width: 22%">Candidate</th>
+                    <th style="width: 15%">Score</th>
+                    <th style="width: 12%">Experience</th>
+                    <th style="width: 23%">Education</th>
+                    <th style="width: 20%">Matched Skills</th>
                 </tr>
             </thead>
             <tbody>
@@ -254,28 +250,34 @@ def comparison_matrix(ranked_candidates):
 
 
 def compare_two_candidates_matrix(c1, c2):
-    """Render a side-by-side comparison table for two candidates."""
-    rec_badge1 = f'<span style="padding: 0.25rem 0.6rem; border-radius: 12px; font-size: 0.75rem; font-weight: 700; {c1.recommendation_style}">{c1.recommendation}</span>'
-    rec_badge2 = f'<span style="padding: 0.25rem 0.6rem; border-radius: 12px; font-size: 0.75rem; font-weight: 700; {c2.recommendation_style}">{c2.recommendation}</span>'
+    """Render a side-by-side comparison table — resume checker style."""
+    def score_chip(val):
+        if val >= 75:
+            return f'<span class="status-chip status-pass">{val:.1f}%</span>'
+        elif val >= 50:
+            return f'<span class="status-chip status-warn">{val:.1f}%</span>'
+        else:
+            return f'<span class="status-chip status-fail">{val:.1f}%</span>'
 
-    # Format skills lists
+    rec_badge1 = f'<span class="rec-badge" style="{c1.recommendation_style}">{c1.recommendation}</span>'
+    rec_badge2 = f'<span class="rec-badge" style="{c2.recommendation_style}">{c2.recommendation}</span>'
+
     matched1_html = render_skill_tags(c1.matched_skills[:12])
     if len(c1.matched_skills) > 12:
-        matched1_html += f'<br><small style="color: #A09890;">+{len(c1.matched_skills)-12} more</small>'
+        matched1_html += f'<br><span class="rc-dim">+{len(c1.matched_skills)-12} more</span>'
 
     matched2_html = render_skill_tags(c2.matched_skills[:12])
     if len(c2.matched_skills) > 12:
-        matched2_html += f'<br><small style="color: #A09890;">+{len(c2.matched_skills)-12} more</small>'
+        matched2_html += f'<br><span class="rc-dim">+{len(c2.matched_skills)-12} more</span>'
 
-    missing1_html = "".join(f'<span class="skill-tag" style="background: rgba(212, 117, 106, 0.1); color: #D4756A; border: 1px solid rgba(212, 117, 106, 0.3);">{s.upper()}</span>' for s in c1.missing_skills[:8]) if c1.missing_skills else "None"
+    missing1_html = "".join(f'<span class="skill-tag tag-missing">{s.upper()}</span>' for s in c1.missing_skills[:8]) if c1.missing_skills else '<span class="status-chip status-pass">None</span>'
     if len(c1.missing_skills) > 8:
-        missing1_html += f'<br><small style="color: #A09890;">+{len(c1.missing_skills)-8} more</small>'
+        missing1_html += f'<br><span class="rc-dim">+{len(c1.missing_skills)-8} more</span>'
 
-    missing2_html = "".join(f'<span class="skill-tag" style="background: rgba(212, 117, 106, 0.1); color: #D4756A; border: 1px solid rgba(212, 117, 106, 0.3);">{s.upper()}</span>' for s in c2.missing_skills[:8]) if c2.missing_skills else "None"
+    missing2_html = "".join(f'<span class="skill-tag tag-missing">{s.upper()}</span>' for s in c2.missing_skills[:8]) if c2.missing_skills else '<span class="status-chip status-pass">None</span>'
     if len(c2.missing_skills) > 8:
-        missing2_html += f'<br><small style="color: #A09890;">+{len(c2.missing_skills)-8} more</small>'
+        missing2_html += f'<br><span class="rc-dim">+{len(c2.missing_skills)-8} more</span>'
 
-    # Format education summary
     def get_edu_line(c):
         edu = c.resume_data.sections.get("education", "")
         if edu:
@@ -289,59 +291,59 @@ def compare_two_candidates_matrix(c1, c2):
         <table class="compare-table">
             <thead>
                 <tr>
-                    <th style="width: 30%">Metric / Feature</th>
-                    <th style="width: 35%; color: #D4A574; font-size: 0.95rem;">{c1.candidate_name}</th>
-                    <th style="width: 35%; color: #C9A88A; font-size: 0.95rem;">{c2.candidate_name}</th>
+                    <th style="width: 30%">Criteria</th>
+                    <th style="width: 35%">{c1.candidate_name}</th>
+                    <th style="width: 35%">{c2.candidate_name}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Overall Match Score</strong></td>
-                    <td><span class="score-pill">{c1.overall_score:.1f}% Match</span></td>
-                    <td><span class="score-pill">{c2.overall_score:.1f}% Match</span></td>
+                    <td><span class="rc-label-bold">Overall Score</span></td>
+                    <td>{score_chip(c1.overall_score)}</td>
+                    <td>{score_chip(c2.overall_score)}</td>
                 </tr>
                 <tr>
-                    <td><strong>Recruiter Recommendation</strong></td>
+                    <td><span class="rc-label-bold">Recommendation</span></td>
                     <td>{rec_badge1}</td>
                     <td>{rec_badge2}</td>
                 </tr>
                 <tr>
-                    <td><strong>Relevant Experience</strong></td>
-                    <td>{c1.experience_years:.1f} Years</td>
-                    <td>{c2.experience_years:.1f} Years</td>
+                    <td><span class="rc-label-bold">Experience</span></td>
+                    <td class="rc-value">{c1.experience_years:.1f} Years</td>
+                    <td class="rc-value">{c2.experience_years:.1f} Years</td>
                 </tr>
                 <tr>
-                    <td><strong>Education Background</strong></td>
-                    <td>{get_edu_line(c1)}</td>
-                    <td>{get_edu_line(c2)}</td>
+                    <td><span class="rc-label-bold">Education</span></td>
+                    <td class="rc-dim">{get_edu_line(c1)}</td>
+                    <td class="rc-dim">{get_edu_line(c2)}</td>
                 </tr>
                 <tr>
-                    <td><strong>Technical Skill Match (40%)</strong></td>
-                    <td>{c1.skill_match_score:.1f}%</td>
-                    <td>{c2.skill_match_score:.1f}%</td>
+                    <td><span class="rc-label-bold">Skill Match</span> <span class="rc-weight">40%</span></td>
+                    <td>{score_chip(c1.skill_match_score)}</td>
+                    <td>{score_chip(c2.skill_match_score)}</td>
                 </tr>
                 <tr>
-                    <td><strong>Semantic Relevance (25%)</strong></td>
-                    <td>{c1.semantic_similarity:.1f}%</td>
-                    <td>{c2.semantic_similarity:.1f}%</td>
+                    <td><span class="rc-label-bold">Semantic Fit</span> <span class="rc-weight">25%</span></td>
+                    <td>{score_chip(c1.semantic_similarity)}</td>
+                    <td>{score_chip(c2.semantic_similarity)}</td>
                 </tr>
                 <tr>
-                    <td><strong>Experience Alignment (20%)</strong></td>
-                    <td>{c1.experience_score:.1f}%</td>
-                    <td>{c2.experience_score:.1f}%</td>
+                    <td><span class="rc-label-bold">Experience Fit</span> <span class="rc-weight">20%</span></td>
+                    <td>{score_chip(c1.experience_score)}</td>
+                    <td>{score_chip(c2.experience_score)}</td>
                 </tr>
                 <tr>
-                    <td><strong>Education Level Match (10%)</strong></td>
-                    <td>{c1.education_score:.1f}%</td>
-                    <td>{c2.education_score:.1f}%</td>
+                    <td><span class="rc-label-bold">Education Fit</span> <span class="rc-weight">10%</span></td>
+                    <td>{score_chip(c1.education_score)}</td>
+                    <td>{score_chip(c2.education_score)}</td>
                 </tr>
                 <tr>
-                    <td><strong>Matched Skills</strong></td>
+                    <td><span class="rc-label-bold">Matched Skills</span></td>
                     <td>{matched1_html}</td>
                     <td>{matched2_html}</td>
                 </tr>
                 <tr>
-                    <td><strong>Missing Required Skills</strong></td>
+                    <td><span class="rc-label-bold">Missing Required Skills</span></td>
                     <td>{missing1_html}</td>
                     <td>{missing2_html}</td>
                 </tr>

@@ -1,30 +1,30 @@
 """
 Data visualization and charting helpers using Plotly.
-"Minimal Luxe" edition — provides radar charts, horizontal bars, and gauge
-charts styled with a refined gold/cream/sage palette for the HireScope AI dashboard.
+"Midnight Aurora" edition — provides radar charts, horizontal bars, and gauge
+charts styled with a refined indigo/emerald/amber palette for the HireScope AI dashboard.
 """
 
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 
-# ── LUXE PALETTE ────────────────────────────────────────────────────────────
-GOLD = "#D4A574"
-CREAM = "#F5E6D3"
-SAGE = "#A8C3A0"
-WARM_TAUPE = "#C9A88A"
-MUTED_ROSE = "#D4756A"
-LAVENDER = "#B4AAC8"
-SOFT_GREY = "#A09890"
+# ── MIDNIGHT AURORA PALETTE ─────────────────────────────────────────────────
+INDIGO = "#818CF8"
+CREAM = "#E0E7FF"
+EMERALD = "#6EE7B7"
+ROSE = "#FCA5A5"
+AMBER = "#FCD34D"
+LAVENDER = "#C4B5FD"
+SOFT_GREY = "#94A3B8"
 CHARCOAL_BG = "rgba(0,0,0,0)"
 
 # Trace colors for multi-candidate overlays
-TRACE_COLORS = [GOLD, SAGE, LAVENDER, WARM_TAUPE]
+TRACE_COLORS = [INDIGO, EMERALD, LAVENDER, AMBER]
 TRACE_FILLS = [
-    "rgba(212, 165, 116, 0.08)",
-    "rgba(168, 195, 160, 0.08)",
-    "rgba(180, 170, 200, 0.08)",
-    "rgba(201, 168, 138, 0.08)",
+    "rgba(99, 102, 241, 0.08)",
+    "rgba(16, 185, 129, 0.08)",
+    "rgba(139, 92, 246, 0.08)",
+    "rgba(251, 191, 36, 0.08)",
 ]
 
 
@@ -78,19 +78,19 @@ def radar_comparison_chart(candidates: list, max_candidates: int = 4) -> go.Figu
             radialaxis=dict(
                 visible=True,
                 range=[0, 100],
-                tickfont=dict(color=SOFT_GREY, size=10, family="Inter"),
-                gridcolor="rgba(212, 165, 116, 0.06)",
-                linecolor="rgba(212, 165, 116, 0.06)"
+                tickfont=dict(color=SOFT_GREY, size=10, family="Plus Jakarta Sans"),
+                gridcolor="rgba(99, 102, 241, 0.06)",
+                linecolor="rgba(99, 102, 241, 0.06)"
             ),
             angularaxis=dict(
-                tickfont=dict(color=CREAM, size=11, family="Inter"),
-                gridcolor="rgba(212, 165, 116, 0.06)"
+                tickfont=dict(color=CREAM, size=11, family="Plus Jakarta Sans"),
+                gridcolor="rgba(99, 102, 241, 0.06)"
             ),
             bgcolor=CHARCOAL_BG
         ),
         showlegend=True,
         legend=dict(
-            font=dict(color=CREAM, family="Inter"),
+            font=dict(color=CREAM, family="Plus Jakarta Sans"),
             bgcolor=CHARCOAL_BG,
             orientation="h",
             yanchor="bottom",
@@ -142,9 +142,9 @@ def breakdown_bar_chart(candidate) -> go.Figure:
         text="Score",
         color="Score",
         color_continuous_scale=[
-            [0.0, MUTED_ROSE],
-            [0.5, GOLD],
-            [1.0, SAGE]
+            [0.0, ROSE],
+            [0.5, INDIGO],
+            [1.0, EMERALD]
         ],
         range_x=[0, 100]
     )
@@ -160,13 +160,13 @@ def breakdown_bar_chart(candidate) -> go.Figure:
     fig.update_layout(
         xaxis=dict(
             title="Score (%)",
-            tickfont=dict(color=SOFT_GREY, family="Inter"),
-            titlefont=dict(color=SOFT_GREY, family="Inter"),
-            gridcolor="rgba(212, 165, 116, 0.05)"
+            tickfont=dict(color=SOFT_GREY, family="Plus Jakarta Sans"),
+            titlefont=dict(color=SOFT_GREY, family="Plus Jakarta Sans"),
+            gridcolor="rgba(99, 102, 241, 0.05)"
         ),
         yaxis=dict(
             title="",
-            tickfont=dict(color=CREAM, size=11, family="Inter")
+            tickfont=dict(color=CREAM, size=11, family="Plus Jakarta Sans")
         ),
         coloraxis_showscale=False,
         margin=dict(l=20, r=20, t=10, b=10),
@@ -181,26 +181,26 @@ def breakdown_bar_chart(candidate) -> go.Figure:
 def gauge_chart(score: float, candidate_name: str) -> go.Figure:
     """
     Generate an elegant circular gauge/ring indicator for the overall score.
-    Uses a refined gold/sage/rose color scheme.
+    Uses a refined indigo/emerald/rose color scheme.
     """
-    # Color based on score range — luxury palette
+    # Color based on score range
     if score >= 75:
-        ring_color = SAGE          # Sage green for strong
+        ring_color = EMERALD
     elif score >= 50:
-        ring_color = GOLD          # Gold for moderate
+        ring_color = INDIGO
     else:
-        ring_color = MUTED_ROSE    # Muted rose for weak
+        ring_color = ROSE
 
     fig = go.Figure(
         go.Indicator(
             mode="gauge+number",
             value=score,
-            number={"suffix": "%", "font": {"color": CREAM, "size": 36, "family": "Playfair Display"}},
-            title={"text": f"{candidate_name}", "font": {"color": SOFT_GREY, "size": 14, "family": "Inter"}},
+            number={"suffix": "%", "font": {"color": CREAM, "size": 36, "family": "Plus Jakarta Sans"}},
+            title={"text": f"{candidate_name}", "font": {"color": SOFT_GREY, "size": 14, "family": "Plus Jakarta Sans"}},
             gauge={
                 "axis": {"range": [0, 100], "tickwidth": 1, "tickcolor": SOFT_GREY, "visible": False},
                 "bar": {"color": ring_color, "thickness": 0.22},
-                "bgcolor": "rgba(212, 165, 116, 0.06)",
+                "bgcolor": "rgba(99, 102, 241, 0.06)",
                 "borderwidth": 0
             }
         )
