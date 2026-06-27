@@ -104,7 +104,8 @@ header_banner()
 # SIDEBAR
 # ───────────────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("### 📋 1. Job Description")
+    st.markdown('<span class="section-label">Step 1</span>', unsafe_allow_html=True)
+    st.markdown("### 📋 Job Description")
     
     # Template Selectbox
     selected_template = st.selectbox(
@@ -123,7 +124,8 @@ with st.sidebar:
     )
     
     st.markdown("---")
-    st.markdown("### 📁 2. Candidate Resumes")
+    st.markdown('<span class="section-label">Step 2</span>', unsafe_allow_html=True)
+    st.markdown("### 📁 Candidate Resumes")
     
     upload_source = st.radio(
         "Resume Source:",
@@ -148,13 +150,17 @@ with st.sidebar:
     elif upload_source == "🏆 Hackathon Dataset (100K JSONL)":
         st.info("🏆 **Redrob Hackathon Mode** — Ranks 100K candidates from JSONL dataset.")
         
-        # Auto-detect paths
+        # Auto-detect paths with fallback
         bundle_dir = os.path.dirname(__file__)
+        if not os.path.exists(os.path.join(bundle_dir, "data", "sample_candidates.json")):
+            parent_fallback = os.path.join(bundle_dir, "..", "[PUB] India_runs_data_and_ai_challenge", "India_runs_data_and_ai_challenge")
+            if os.path.exists(parent_fallback):
+                bundle_dir = parent_fallback
         bundle_dir = os.path.normpath(bundle_dir)
         
         default_cand = ""
         # Prioritize the inbuilt sample file
-        repo_sample_path = os.path.join(os.path.dirname(__file__), "data", "sample_candidates.json")
+        repo_sample_path = os.path.join(bundle_dir, "data", "sample_candidates.json")
         if os.path.exists(repo_sample_path):
             default_cand = "data/sample_candidates.json"
         else:
@@ -169,13 +175,14 @@ with st.sidebar:
         
         hackathon_candidate_path = st.text_input("Candidates file path:", value=default_cand, help="Path to candidates.jsonl, .jsonl.gz or sample_candidates.json")
         
-        default_jd = os.path.join(bundle_dir, "job_description.docx") if os.path.isdir(bundle_dir) else ""
+        default_jd = os.path.join(bundle_dir, "job_description.docx")
         hackathon_jd_path = st.text_input("JD file path (optional):", value=default_jd if os.path.exists(default_jd) else "", help="Path to job_description.docx or .md")
         
         hackathon_top_n = st.slider("Top N candidates to rank:", min_value=10, max_value=500, value=100, step=10)
     
     st.markdown("---")
-    st.markdown("### ⚙️ 3. Engine Settings")
+    st.markdown('<span class="section-label">Step 3</span>', unsafe_allow_html=True)
+    st.markdown("### ⚙️ Engine Settings")
     
     if upload_source != "🏆 Hackathon Dataset (100K JSONL)":
         matching_mode = st.selectbox(
@@ -194,9 +201,9 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("""
     <div style="text-align: center; padding: 0.5rem 0;">
-        <div style="color: #A09890; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.4rem;">HireScope AI v2.0</div>
-        <div style="color: rgba(212,165,116,0.5); font-size: 0.65rem;">NLP • Sentence Transformers • TF-IDF</div>
-        <div style="color: rgba(160,152,144,0.5); font-size: 0.6rem; margin-top: 0.3rem;">Built for Redrob Hackathon 2026</div>
+        <div style="color: #64748B; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.4rem;">HireScope AI v2.0</div>
+        <div style="color: rgba(99,102,241,0.5); font-size: 0.65rem;">NLP • Sentence Transformers • TF-IDF</div>
+        <div style="color: rgba(148,163,184,0.4); font-size: 0.6rem; margin-top: 0.3rem;">Built for Redrob Hackathon 2026</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -398,16 +405,18 @@ if results is not None and jd_req is not None:
     
     # ── TAB 1: OVERVIEW ──
     with tab_overview:
-
+        st.markdown('<div class="labeled-divider"><span>Job Requirements</span></div>', unsafe_allow_html=True)
         st.subheader("📋 Role Alignment Overview")
         
         # Display parsed requirements info
         st.markdown(
             f"""
-            **Target Position**: <span style="color: #D4A574; font-weight:700; font-size:1.1rem; font-family: 'Playfair Display', Georgia, serif;">{jd_req.title}</span> &nbsp;|&nbsp; 
-            **Seniority Level**: <span style="color: #B4AAC8; font-weight:700;">{jd_req.seniority.title()}</span> &nbsp;|&nbsp; 
-            **Required Experience**: <span style="color: #A8C3A0; font-weight:700;">{jd_req.min_experience:.0f}+ Yrs</span> &nbsp;|&nbsp; 
-            **Required Education**: <span style="color: #DCC8A0; font-weight:700;">{jd_req.education_level.title() if jd_req.education_level else "Any"}</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 0.8rem 0 1.2rem;">
+                <div><span class="rc-label">Position</span><br><span class="rc-name">{jd_req.title}</span></div>
+                <div><span class="rc-label">Seniority</span><br><span class="status-chip status-info">{jd_req.seniority.title()}</span></div>
+                <div><span class="rc-label">Experience</span><br><span class="status-chip status-pass">{jd_req.min_experience:.0f}+ Years</span></div>
+                <div><span class="rc-label">Education</span><br><span class="status-chip status-warn">{jd_req.education_level.title() if jd_req.education_level else "Any"}</span></div>
+            </div>
             """,
             unsafe_allow_html=True
         )
@@ -419,15 +428,12 @@ if results is not None and jd_req is not None:
             st.markdown("##### Preferred / Bonus Skills:")
             st.markdown(render_skill_tags(jd_req.preferred_skills), unsafe_allow_html=True)
             
-
-        
-
+        st.markdown('<div class="labeled-divider"><span>Comparative Analysis</span></div>', unsafe_allow_html=True)
         st.subheader("💡 Comparative Fit Summary")
         summary_text = generate_comparative_analysis(results, jd_req)
         st.info(summary_text)
 
-        
-
+        st.markdown('<div class="labeled-divider"><span>Ranking Matrix</span></div>', unsafe_allow_html=True)
         st.subheader("📊 Candidate Overview Matrix")
         comparison_matrix(results)
         
@@ -448,7 +454,7 @@ if results is not None and jd_req is not None:
     # ── TAB 2: RANKINGS ──
     with tab_rankings:
         st.subheader("🏆 Candidate Rank Leaderboard")
-        st.markdown("Select a candidate from the leaderboard below to see their matching breakdown.")
+        st.markdown('<span class="rc-dim">Select a candidate to see their detailed matching breakdown.</span>', unsafe_allow_html=True)
         
         for idx, c in enumerate(results, start=1):
             rec_text = getattr(c, "recommendation", "")
@@ -483,18 +489,16 @@ if results is not None and jd_req is not None:
 
     # ── TAB 3: ANALYTICS ──
     with tab_analytics:
-        st.subheader("📊 Matching Analytics & Skill Distributions")
+        st.subheader("📊 Matching Analytics")
+        st.markdown('<span class="rc-dim">Visual breakdowns of candidate scoring and skill coverage across the pool.</span>', unsafe_allow_html=True)
         
         col_c1, col_c2 = st.columns([1, 1])
         with col_c1:
-
             st.markdown("##### Radar Comparison (Top 4 Candidates)")
             radar_fig = radar_comparison_chart(results)
             st.plotly_chart(radar_fig, use_container_width=True)
-    
             
         with col_c2:
-
             st.markdown("##### Score Distribution Breakdown")
             
             # Simple bar chart of overall scores
@@ -502,7 +506,7 @@ if results is not None and jd_req is not None:
             c_scores = [c.overall_score for c in results]
             
             # Highlight colors
-            colors_list = ["#A8C3A0" if score >= 75 else "#D4A574" if score >= 50 else "#D4756A" for score in c_scores]
+            colors_list = ["#6EE7B7" if score >= 75 else "#818CF8" if score >= 50 else "#FCA5A5" for score in c_scores]
             
             fig_bar = go.Figure(go.Bar(
                 x=c_scores,
@@ -513,7 +517,7 @@ if results is not None and jd_req is not None:
                 textposition='inside'
             ))
             fig_bar.update_layout(
-                xaxis=dict(title="Overall Score (%)", range=[0, 100], gridcolor="rgba(212,165,116,0.06)"),
+                xaxis=dict(title="Overall Score (%)", range=[0, 100], gridcolor="rgba(99,102,241,0.06)"),
                 yaxis=dict(autorange="reversed"),
                 margin=dict(l=20, r=20, t=10, b=10),
                 height=280,
@@ -521,8 +525,6 @@ if results is not None and jd_req is not None:
                 plot_bgcolor="rgba(0,0,0,0)"
             )
             st.plotly_chart(fig_bar, use_container_width=True)
-    
-            
 
         st.markdown("##### Skill Coverage Across All Candidates")
         
@@ -542,7 +544,7 @@ if results is not None and jd_req is not None:
             y="Skill",
             text="Count",
             color="Coverage (%)",
-            color_continuous_scale=[[0, "#3D3530"], [0.5, "#D4A574"], [1, "#F5E6D3"]],
+            color_continuous_scale=[[0, "#1E1B4B"], [0.5, "#6366F1"], [1, "#E0E7FF"]],
             range_x=[0, 100]
         )
         fig_skills.update_layout(
@@ -556,11 +558,10 @@ if results is not None and jd_req is not None:
         fig_skills.update_traces(texttemplate='%{text} candidates', textposition='outside')
         st.plotly_chart(fig_skills, use_container_width=True)
 
-
     # ── TAB 4: COMPARE ──
     with tab_compare:
-        st.subheader("👥 Side-by-Side Candidate Comparison")
-        st.markdown("Select any two candidates to contrast their scoring breakdown, recommendation tiers, and matching technical skills.")
+        st.subheader("👥 Side-by-Side Comparison")
+        st.markdown('<span class="rc-dim">Select two candidates to compare scoring, skills, and recommendation tiers.</span>', unsafe_allow_html=True)
         
         col_comp_select1, col_comp_select2 = st.columns(2)
         with col_comp_select1:
@@ -591,17 +592,13 @@ if results is not None and jd_req is not None:
                 st.plotly_chart(gauge_chart(c_b.overall_score, c_b.candidate_name), use_container_width=True)
                 
             # Radar chart comparison
-
             st.markdown("##### Dimension Analysis Comparison")
             radar_fig_two = radar_comparison_chart([c_a, c_b])
             st.plotly_chart(radar_fig_two, use_container_width=True)
-    
             
             # Side-by-side comparison table
-
             st.markdown("##### Detailed Comparison Matrix")
             compare_two_candidates_matrix(c_a, c_b)
-    
 
     # ── TAB 5: DEEP DIVE ──
     with tab_deep_dive:
@@ -619,10 +616,9 @@ if results is not None and jd_req is not None:
         col_d1, col_d2 = st.columns([1, 2])
         
         with col_d1:
-
             # Display name and contact details
             st.markdown(f"### {c.candidate_name}")
-            st.markdown(f"📄 `{c.file_name}`")
+            st.markdown(f'<span class="rc-label">File:</span> <span class="rc-value">{c.file_name}</span>', unsafe_allow_html=True)
             
             # Circular Gauge
             gauge_fig = gauge_chart(c.overall_score, "Overall Match")
@@ -637,18 +633,15 @@ if results is not None and jd_req is not None:
             st.markdown(f"✉️ **Email**: {email_val or 'Not found'}")
             st.markdown(f"📞 **Phone**: {phone_val or 'Not found'}")
             st.markdown(f"🔗 **LinkedIn**: {linkedin_val or 'Not found'}")
-    
-            
-        with col_d2:
-            # Recruiter Assistant Report Card (Level 1 & 3 Hackathon Features)
 
-            st.markdown("### 💬 AI Recruiter Assistant Report")
+        with col_d2:
+            st.markdown('### 💬 AI Recruiter Assistant Report', unsafe_allow_html=True)
             
             rec_text = getattr(c, "recommendation", "Consider")
             rec_style = getattr(c, "recommendation_style", "")
-            rec_badge = f'<span style="padding: 0.25rem 0.6rem; border-radius: 12px; font-weight: 700; {rec_style}">{rec_text}</span>'
+            rec_badge = f'<span class="rec-badge" style="{rec_style}">{rec_text}</span>'
             
-            st.markdown(f"**Recommendation Status**: {rec_badge}", unsafe_allow_html=True)
+            st.markdown(f'<span class="rc-label">Recommendation</span> {rec_badge}', unsafe_allow_html=True)
             st.markdown(f"**Executive Fit Summary**:\n\n{getattr(c, 'summary', 'No summary generated.')}")
             
             col_report1, col_report2 = st.columns(2)
@@ -657,9 +650,9 @@ if results is not None and jd_req is not None:
                 red_flags_list = getattr(c, "red_flags", ["No critical concerns detected."])
                 for flag in red_flags_list:
                     if flag == "No critical concerns detected.":
-                        st.markdown(f'<span style="color:#A8C3A0; font-weight:bold; margin-right:0.5rem;">✓</span> {flag}', unsafe_allow_html=True)
+                        st.markdown(f'<span class="status-chip status-pass" style="margin-right:0.4rem;">✓ PASS</span> {flag}', unsafe_allow_html=True)
                     else:
-                        st.markdown(f'<span style="color:#DCC8A0; font-weight:bold; margin-right:0.5rem;">⚠</span> {flag}', unsafe_allow_html=True)
+                        st.markdown(f'<span class="status-chip status-warn" style="margin-right:0.4rem;">⚠️ FLAG</span> {flag}', unsafe_allow_html=True)
             with col_report2:
                 st.markdown("##### 📋 Recommended Improvements:")
                 suggestions_list = c.explanation.improvement_areas
@@ -670,29 +663,25 @@ if results is not None and jd_req is not None:
             questions_list = getattr(c, "interview_questions", [])
             for q_idx, q in enumerate(questions_list, start=1):
                 st.markdown(f"**Q{q_idx}**: *{q}*")
-    
-
 
             st.subheader("📋 Fit Assessment Summary")
             
             col_d2_1, col_d2_2 = st.columns(2)
             with col_d2_1:
-                st.markdown(f"💼 **Experience**: {c.experience_years:.1f} Years")
-                st.markdown(f"<small>{c.explanation.experience_assessment}</small>", unsafe_allow_html=True)
+                st.markdown(f'<span class="rc-label">Experience</span> <span class="status-chip status-pass">{c.experience_years:.1f} Years</span>', unsafe_allow_html=True)
+                st.markdown(f'<span class="rc-dim">{c.explanation.experience_assessment}</span>', unsafe_allow_html=True)
             with col_d2_2:
                 education_val = "Not found"
                 if hasattr(c.resume_data, "sections") and c.resume_data.sections.get("education"):
                     education_val = c.resume_data.sections.get("education").split("\n")[0]
                 elif hasattr(c.resume_data, "education_text") and c.resume_data.education_text:
                     education_val = c.resume_data.education_text.split("\n")[0]
-                st.markdown(f"🎓 **Education Level**: {education_val[:50] if education_val else 'Not found'}")
-                st.markdown(f"<small>Required level: {jd_req.education_level.title() if jd_req.education_level else 'Any'}</small>", unsafe_allow_html=True)
+                st.markdown(f'<span class="rc-label">Education</span> <span class="status-chip status-info">{education_val[:50] if education_val else "Not found"}</span>', unsafe_allow_html=True)
+                st.markdown(f'<span class="rc-dim">Required: {jd_req.education_level.title() if jd_req.education_level else "Any"}</span>', unsafe_allow_html=True)
             
             st.markdown("---")
             st.markdown("##### Detailed Fit Breakdown:")
             score_breakdown_bars(c.explanation.score_breakdown)
-    
-            
 
             st.subheader("💡 Strengths & Gap Analysis")
             
@@ -707,8 +696,6 @@ if results is not None and jd_req is not None:
                 st.markdown("##### 🔴 Gaps & Growth Areas:")
                 for gap in c.explanation.improvement_areas[:4]:
                     st.markdown(f'<span class="match-icon-cross">✗</span> {gap}', unsafe_allow_html=True)
-    
-            
 
             st.subheader("🧠 Skills Mapping Details")
             
@@ -719,7 +706,7 @@ if results is not None and jd_req is not None:
             # Missing Skills
             if c.missing_skills:
                 st.markdown("##### Missing Required Skills:")
-                missing_html = "".join(f'<span class="skill-tag" style="background: rgba(212, 117, 106, 0.1); color: #D4756A; border: 1px solid rgba(212, 117, 106, 0.3);">{s.upper()}</span>' for s in c.missing_skills)
+                missing_html = "".join(f'<span class="skill-tag tag-missing">{s.upper()}</span>' for s in c.missing_skills)
                 st.markdown(missing_html, unsafe_allow_html=True)
                 
             # Extra/Bonus Skills
@@ -727,8 +714,6 @@ if results is not None and jd_req is not None:
                 st.markdown("##### Extra/Bonus Skills:")
                 st.markdown(render_skill_tags(c.extra_skills), unsafe_allow_html=True)
                 
-    
-            
             # Outreach Email Generator
             st.markdown("---")
             st.subheader("✉️ Automated Outreach Assistant")
@@ -738,11 +723,11 @@ if results is not None and jd_req is not None:
 
 Hi {c.candidate_name},
 
-I came across your profile and was highly impressed by your background and experience.
+I came across your profile and was impressed by your background.
 
-Specifically, your expertise in {skills_str} aligns perfectly with the requirements for the position we are currently recruiting for.
+Specifically, your expertise in {skills_str} aligns perfectly with the requirements for the position we are recruiting for.
 
-Are you available for a brief 15-minute call this week to discuss how your background fits our vision?
+Are you available for a brief 15-minute call this week to discuss?
 
 Best regards,
 [Your Name]
@@ -800,8 +785,8 @@ else:
             st.markdown('<div class="pipeline-arrow">→</div>', unsafe_allow_html=True)
         with p4:
             st.markdown(f"""
-            <div class="pipeline-stage" style="border-color: rgba(168,195,160,0.3);">
-                <div class="stage-number" style="background: linear-gradient(135deg, #A8C3A0, #7BA873); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">{len(hack_results)}</div>
+            <div class="pipeline-stage" style="border-color: rgba(110,231,183,0.3);">
+                <div class="stage-number" style="background: linear-gradient(135deg, #6EE7B7, #34D399); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">{len(hack_results)}</div>
                 <div class="stage-label">Top Ranked</div>
             </div>
             """, unsafe_allow_html=True)
@@ -829,7 +814,7 @@ else:
             st.markdown(f"""
             <div class="insight-card">
                 <div class="insight-title">Most Common Title</div>
-                <div style="color: #F5E6D3; font-weight: 600; font-size: 0.95rem;">{most_common_title}</div>
+                <div style="color: #E2E8F0; font-weight: 600; font-size: 0.95rem;">{most_common_title}</div>
             </div>
             """, unsafe_allow_html=True)
         with i2:
@@ -870,7 +855,6 @@ else:
                 st.plotly_chart(fig_h, use_container_width=True)
             with col_an2:
                 st.subheader("⚠️ Missing Skills Heatmap")
-                # Count missing skills in top 100
                 missing_counts = {}
                 for r in hack_results:
                     for skill in r.get("missing_core_skills", []):
@@ -883,7 +867,6 @@ else:
                 else:
                     st.info("No missing skills identified in the top candidates.")
             
-            # ── ADDITIONAL ANALYTICS ROW ───────────────────────────────
             col_an3, col_an4 = st.columns(2)
             with col_an3:
                 st.subheader("🧠 Skill Coverage Treemap")
@@ -893,27 +876,26 @@ else:
                         skill_freq[s] = skill_freq.get(s, 0) + 1
                 if skill_freq:
                     tree_data = pd.DataFrame([{"Skill": k, "Count": v} for k, v in skill_freq.items()]).sort_values("Count", ascending=False).head(20)
-                    fig_tree = px.treemap(tree_data, path=["Skill"], values="Count", color="Count", color_continuous_scale=[[0, "#3D3530"], [0.5, "#D4A574"], [1, "#F5E6D3"]])
+                    fig_tree = px.treemap(tree_data, path=["Skill"], values="Count", color="Count", color_continuous_scale=[[0, "#1E1B4B"], [0.5, "#6366F1"], [1, "#E0E7FF"]])
                     fig_tree.update_layout(paper_bgcolor="rgba(0,0,0,0)", margin=dict(l=10, r=10, t=10, b=10), height=320, coloraxis_showscale=False)
                     st.plotly_chart(fig_tree, use_container_width=True)
             with col_an4:
                 st.subheader("💼 Experience Distribution")
                 exp_vals = [r.get("years_experience", 0) for r in hack_results]
-                fig_box = go.Figure(go.Box(y=exp_vals, marker_color="#D4A574", boxpoints="outliers", name="Years"))
-                fig_box.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", margin=dict(l=20, r=20, t=30, b=20), height=320, yaxis=dict(title="Years", gridcolor="rgba(212,165,116,0.06)"))
+                fig_box = go.Figure(go.Box(y=exp_vals, marker_color="#818CF8", boxpoints="outliers", name="Years"))
+                fig_box.update_layout(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", margin=dict(l=20, r=20, t=30, b=20), height=320, yaxis=dict(title="Years", gridcolor="rgba(99,102,241,0.06)"))
                 st.plotly_chart(fig_box, use_container_width=True)
             
-            # ── EXECUTIVE SUMMARY ──────────────────────────────────────
             st.markdown(f"""
             <div class="exec-summary">
-                <div style="font-family: 'Playfair Display', Georgia, serif; color: #A8C3A0; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">📋 Executive Summary</div>
-                <div style="color: #E8E0D8; font-size: 0.9rem; line-height: 1.8;">
-                    Analyzed <strong style="color: #D4A574;">{len(hack_results) + hp_count:,}</strong> candidates total.
-                    Filtered <strong style="color: #D4756A;">{hp_count}</strong> honeypot profiles.
-                    Top candidate <strong style="color: #F5E6D3;">{hack_results[0]['candidate_name']}</strong> scored 
-                    <strong style="color: #A8C3A0;">{hack_results[0]['composite_score']*100:.1f}%</strong> composite match.
-                    The talent pool averages <strong style="color: #D4A574;">{avg_exp:.1f} years</strong> experience with 
-                    <strong style="color: #D4A574;">{len(all_matched)}</strong> unique skills represented.
+                <div style="font-family: 'Plus Jakarta Sans', sans-serif; color: #6EE7B7; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">📋 Executive Summary</div>
+                <div style="color: #E2E8F0; font-size: 0.9rem; line-height: 1.8;">
+                    Analyzed <strong style="color: #818CF8;">{len(hack_results) + hp_count:,}</strong> candidates total.
+                    Filtered <strong style="color: #FCA5A5;">{hp_count}</strong> honeypot profiles.
+                    Top candidate <strong style="color: #E0E7FF;">{hack_results[0]['candidate_name']}</strong> scored 
+                    <strong style="color: #6EE7B7;">{hack_results[0]['composite_score']*100:.1f}%</strong> composite match.
+                    The talent pool averages <strong style="color: #818CF8;">{avg_exp:.1f} years</strong> experience with 
+                    <strong style="color: #818CF8;">{len(all_matched)}</strong> unique skills represented.
                 </div>
             </div>
             """, unsafe_allow_html=True)
@@ -972,18 +954,12 @@ else:
             
             col_dd1, col_dd2 = st.columns([1, 2])
             with col_dd1:
-
                 st.markdown(f"### {sel_r['candidate_name']}")
                 st.markdown(f"🆔 `{sel_r['candidate_id']}`")
-                
-                # Gauge
                 gauge_fig = gauge_chart(sel_r['composite_score'] * 100.0, "Composite Score")
                 st.plotly_chart(gauge_fig, use_container_width=True)
-        
             with col_dd2:
-    
                 st.markdown("### 📋 Candidate Profile & Signals")
-                
                 st.markdown(
                     f"""
                     **Current Title**: `{sel_r['current_title']}` &nbsp;|&nbsp;
@@ -1001,18 +977,14 @@ else:
                 }
                 score_breakdown_bars(breakdown)
         
-                
-
             st.subheader("🧠 Skills Analysis")
             st.markdown("##### Matched Core Skills:")
             st.markdown(render_skill_tags(sel_r["matched_skills"]), unsafe_allow_html=True)
             if sel_r["missing_core_skills"]:
                 st.markdown("##### Missing Core Skills:")
-                missing_html = "".join(f'<span class="skill-tag" style="background: rgba(212, 117, 106, 0.1); color: #D4756A; border: 1px solid rgba(212, 117, 106, 0.3);">{s.upper()}</span>' for s in sel_r["missing_core_skills"])
+                missing_html = "".join(f'<span class="skill-tag tag-missing">{s.upper()}</span>' for s in sel_r["missing_core_skills"])
                 st.markdown(missing_html, unsafe_allow_html=True)
     
-            
-
             st.subheader("📞 Platform Behavioral Signals")
             sig = sel_cand.get("redrob_signals", {})
             col_s1, col_s2, col_s3 = st.columns(3)
@@ -1038,18 +1010,17 @@ else:
 
 Hi {sel_r['candidate_name']},
 
-I came across your profile and was highly impressed by your background as a {sel_r['current_title']} with {sel_r['years_experience']:.1f} years of experience.
+I came across your profile and was impressed by your background as a {sel_r['current_title']} with {sel_r['years_experience']:.1f} years of experience.
 
-Specifically, your expertise in {skills_str} aligns perfectly with the requirements for the position we are currently recruiting for.
+Specifically, your expertise in {skills_str} aligns perfectly with the requirements for the position we are recruiting for.
 
-Are you available for a brief 15-minute call this week to discuss how your background fits our vision?
+Are you available for a brief 15-minute call this week to discuss?
 
 Best regards,
 [Your Name]
 Talent Acquisition Team, HireScope AI
 """
                 st.code(email_template, language="text")
-
 
         with tab_dl:
             csv_path = os.path.join("results", "hackathon_submission.csv")
@@ -1061,22 +1032,22 @@ Talent Acquisition Team, HireScope AI
 
     else:
         st.markdown("""
-        <div class="glass-card" style="text-align: center; padding: 3rem 2rem; border: 1px solid rgba(212, 165, 116, 0.15);">
-            <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.2rem; font-weight: 700; color: #F5E6D3; margin-bottom: 0.5rem;">
-                Welcome to HireScope AI
+        <div class="glass-card" style="text-align: center; padding: 3.5rem 2rem;">
+            <div class="rc-name" style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem;">
+                HireScope AI
             </div>
-            <div style="color: #D4A574; font-size: 1.1rem; font-weight: 500; margin-bottom: 0.8rem;">
+            <div class="rc-label" style="font-size: 0.85rem; letter-spacing: 3px; margin-bottom: 1.2rem;">
                 Intelligent Candidate Discovery & Ranking System
             </div>
-            <div style="color: #A09890; font-size: 0.95rem; line-height: 1.8; max-width: 650px; margin: 0 auto;">
-                Select a <strong style="color: #D4A574;">Resume Source</strong> in the sidebar and click
-                <strong style="color: #D4A574;">Analyze & Rank</strong> to get started.
+            <div class="rc-dim" style="max-width: 550px; margin: 0 auto; line-height: 1.8; font-style: normal; font-size: 0.92rem;">
+                Select a <span class="status-chip status-info">Resume Source</span> in the sidebar and click
+                <span class="status-chip status-pass">🚀 Analyze & Rank</span> to get started.
             </div>
         </div>
         """, unsafe_allow_html=True)
         
         # ── FEATURE SHOWCASE ───────────────────────────────────────────────
-        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown('<div class="labeled-divider"><span>Platform Capabilities</span></div>', unsafe_allow_html=True)
         st.markdown("### ⚡ Platform Capabilities")
         
         f1, f2, f3 = st.columns(3)
@@ -1084,8 +1055,9 @@ Talent Acquisition Team, HireScope AI
             st.markdown("""
             <div class="insight-card">
                 <div class="insight-title">🧠 Dual AI Matching</div>
-                <div style="color: #E8E0D8; font-size: 0.85rem; line-height: 1.6;">
-                    TF-IDF keyword overlap <strong style="color: #D4A574;">+</strong> Sentence Transformer semantic matching for deep concept alignment.
+                <div class="text-body">
+                    <span class="status-chip status-info">TF-IDF</span> keyword overlap +
+                    <span class="status-chip status-info">Sentence Transformer</span> semantic matching for deep concept alignment.
                 </div>
             </div>
             """, unsafe_allow_html=True)
@@ -1093,8 +1065,9 @@ Talent Acquisition Team, HireScope AI
             st.markdown("""
             <div class="insight-card">
                 <div class="insight-title">🍯 Honeypot Detection</div>
-                <div style="color: #E8E0D8; font-size: 0.85rem; line-height: 1.6;">
-                    9-check consistency filter catches fake profiles via temporal, salary, career & endorsement anomalies.
+                <div class="text-body">
+                    <span class="status-chip status-fail">9-Check</span> consistency filter catches
+                    fake profiles via temporal, salary, career & endorsement anomalies.
                 </div>
             </div>
             """, unsafe_allow_html=True)
@@ -1102,8 +1075,13 @@ Talent Acquisition Team, HireScope AI
             st.markdown("""
             <div class="insight-card">
                 <div class="insight-title">📊 Multi-Signal Scoring</div>
-                <div style="color: #E8E0D8; font-size: 0.85rem; line-height: 1.6;">
-                    5-dimension weighted composite: Skills 35% • Title 25% • Experience 15% • Education 10% • Behavioral 15%.
+                <div class="text-body">
+                    <span class="rc-label-bold">5-Dimension</span> weighted composite:
+                    <span class="status-chip status-info">Skills 35%</span>
+                    <span class="status-chip status-info">Title 25%</span>
+                    <span class="status-chip status-pass">Exp 15%</span>
+                    <span class="status-chip status-warn">Edu 10%</span>
+                    <span class="status-chip status-fail">Behavioral 15%</span>
                 </div>
             </div>
             """, unsafe_allow_html=True)
@@ -1113,8 +1091,9 @@ Talent Acquisition Team, HireScope AI
             st.markdown("""
             <div class="insight-card">
                 <div class="insight-title">📄 Smart Resume Parser</div>
-                <div style="color: #E8E0D8; font-size: 0.85rem; line-height: 1.6;">
-                    Extracts skills from PDF & TXT using 500+ skill taxonomy with n-gram matching and alias resolution.
+                <div class="text-body">
+                    Extracts skills from <span class="status-chip status-info">PDF</span> & <span class="status-chip status-info">TXT</span> using
+                    <span class="rc-name-sm">500+ skill taxonomy</span> with n-gram matching and alias resolution.
                 </div>
             </div>
             """, unsafe_allow_html=True)
@@ -1122,8 +1101,10 @@ Talent Acquisition Team, HireScope AI
             st.markdown("""
             <div class="insight-card">
                 <div class="insight-title">💬 AI Explainability</div>
-                <div style="color: #E8E0D8; font-size: 0.85rem; line-height: 1.6;">
-                    Natural-language reports with strengths, gaps, interview questions & automated outreach emails.
+                <div class="text-body">
+                    Natural-language reports with <span class="status-chip status-pass">strengths</span>,
+                    <span class="status-chip status-fail">gaps</span>,
+                    interview questions & automated outreach emails.
                 </div>
             </div>
             """, unsafe_allow_html=True)
@@ -1131,8 +1112,9 @@ Talent Acquisition Team, HireScope AI
             st.markdown("""
             <div class="insight-card">
                 <div class="insight-title">🏆 100K Scale Ready</div>
-                <div style="color: #E8E0D8; font-size: 0.85rem; line-height: 1.6;">
-                    Hackathon-optimized pipeline ranks 100,000 candidates in under 5 minutes on CPU-only hardware.
+                <div class="text-body">
+                    Hackathon-optimized pipeline ranks <span class="rc-name-sm">100,000 candidates</span> in under
+                    <span class="status-chip status-pass">5 minutes</span> on CPU-only hardware.
                 </div>
             </div>
             """, unsafe_allow_html=True)
@@ -1141,7 +1123,7 @@ Talent Acquisition Team, HireScope AI
         st.markdown("<br>", unsafe_allow_html=True)
         st.markdown("""
         <div style="text-align: center; padding: 1rem 0;">
-            <div style="color: #A09890; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.8rem;">Powered By</div>
+            <div style="color: #64748B; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 0.8rem; font-weight: 700;">Powered By</div>
             <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
                 <span class="skill-tag tag-datascience">Sentence Transformers</span>
                 <span class="skill-tag tag-programming">Scikit-Learn TF-IDF</span>
@@ -1154,9 +1136,9 @@ Talent Acquisition Team, HireScope AI
         """, unsafe_allow_html=True)
 
         # ── CANDIDATE & DATASET EXPLORER ──────────────────────────────────
-        st.markdown("---")
+        st.markdown('<div class="labeled-divider"><span>Data Explorer</span></div>', unsafe_allow_html=True)
         st.subheader("📂 Explore Candidates & Datasets")
-        st.markdown("Browse the candidate pool or demo resumes before running analysis.")
+        st.markdown('Browse the <span class="kw">candidate pool</span> or <span class="kw">demo resumes</span> before running analysis.', unsafe_allow_html=True)
 
         explore_source = st.radio(
             "Select Source to Explore:",
@@ -1293,13 +1275,13 @@ Talent Acquisition Team, HireScope AI
                         st.markdown("**Experience Distribution**")
                         fig_exp = px.histogram(
                             df_dataset, x="Experience (Yrs)", nbins=20,
-                            color_discrete_sequence=["#D4A574"]
+                            color_discrete_sequence=["#818CF8"]
                         )
                         fig_exp.update_layout(
                             paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                             margin=dict(l=20, r=20, t=10, b=20), height=280,
-                            xaxis=dict(gridcolor="rgba(212,165,116,0.06)"),
-                            yaxis=dict(gridcolor="rgba(212,165,116,0.06)")
+                            xaxis=dict(gridcolor="rgba(99,102,241,0.06)"),
+                            yaxis=dict(gridcolor="rgba(99,102,241,0.06)")
                         )
                         st.plotly_chart(fig_exp, use_container_width=True)
 
@@ -1310,7 +1292,7 @@ Talent Acquisition Team, HireScope AI
                         fig_titles = px.bar(
                             title_counts, x="Count", y="Title", orientation="h",
                             color="Count",
-                            color_continuous_scale=[[0, "#3D3530"], [0.5, "#D4A574"], [1, "#F5E6D3"]]
+                            color_continuous_scale=[[0, "#1E1B4B"], [0.5, "#6366F1"], [1, "#E0E7FF"]]
                         )
                         fig_titles.update_layout(
                             yaxis=dict(autorange="reversed"),
@@ -1328,12 +1310,12 @@ Talent Acquisition Team, HireScope AI
                         country_counts.columns = ["Country", "Count"]
                         fig_country = px.pie(
                             country_counts, values="Count", names="Country",
-                            color_discrete_sequence=["#D4A574", "#A8C3A0", "#B4AAC8", "#C9A88A", "#DCC8A0", "#D4756A", "#A0B4D2", "#C8AAB4"]
+                            color_discrete_sequence=["#818CF8", "#6EE7B7", "#C4B5FD", "#FCD34D", "#7DD3FC", "#FCA5A5", "#F9A8D4", "#A5B4FC"]
                         )
                         fig_country.update_layout(
                             paper_bgcolor="rgba(0,0,0,0)",
                             margin=dict(l=20, r=20, t=10, b=20), height=280,
-                            legend=dict(font=dict(color="#E8E0D8"))
+                            legend=dict(font=dict(color="#E2E8F0"))
                         )
                         st.plotly_chart(fig_country, use_container_width=True)
 
@@ -1341,13 +1323,13 @@ Talent Acquisition Team, HireScope AI
                         st.markdown("**Skill Count Distribution**")
                         fig_skills_dist = px.histogram(
                             df_dataset, x="Skill Count", nbins=15,
-                            color_discrete_sequence=["#A8C3A0"]
+                            color_discrete_sequence=["#6EE7B7"]
                         )
                         fig_skills_dist.update_layout(
                             paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                             margin=dict(l=20, r=20, t=10, b=20), height=280,
-                            xaxis=dict(gridcolor="rgba(212,165,116,0.06)"),
-                            yaxis=dict(gridcolor="rgba(212,165,116,0.06)")
+                            xaxis=dict(gridcolor="rgba(99,102,241,0.06)"),
+                            yaxis=dict(gridcolor="rgba(99,102,241,0.06)")
                         )
                         st.plotly_chart(fig_skills_dist, use_container_width=True)
 
