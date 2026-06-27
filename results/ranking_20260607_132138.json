@@ -1,0 +1,354 @@
+{
+  "timestamp": "2026-06-07T13:21:38.749979",
+  "job_description": {
+    "title": "Full Stack Web Developer",
+    "required_skills": [
+      "github actions",
+      "tailwind css",
+      "javascript",
+      "typescript",
+      "next.js",
+      "node.js",
+      "express",
+      "mongodb",
+      "github",
+      "react",
+      "sql",
+      "git",
+      "css"
+    ],
+    "preferred_skills": [],
+    "min_experience": 3.0,
+    "education_level": "bachelor",
+    "seniority": "mid"
+  },
+  "total_candidates": 5,
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Unknown Candidate",
+      "file_name": "Resume_B_Nithin_Singh_Rajpurohith.pdf",
+      "overall_score": 57.79,
+      "scores": {
+        "skill_match": 100.0,
+        "semantic_similarity": 0.0,
+        "experience": 0.0,
+        "education": 100.0,
+        "bonus": 100.0
+      },
+      "matched_skills": [
+        "github actions",
+        "tailwind css",
+        "javascript",
+        "typescript",
+        "next.js",
+        "node.js",
+        "express",
+        "mongodb",
+        "github",
+        "react",
+        "sql",
+        "git",
+        "css"
+      ],
+      "missing_skills": [],
+      "extra_skills": [
+        "artificial intelligence",
+        "machine learning",
+        "problem solving",
+        "time management",
+        "communication",
+        "leadership",
+        "vs code",
+        "python",
+        "django",
+        "java",
+        "c"
+      ],
+      "experience_years": 0.0,
+      "explanation": {
+        "experience_assessment": "Below experience requirement: 0.0 years (required: 3+ years).",
+        "strengths": [
+          "Strong skill match (100%) with 13 matching skills.",
+          "Education qualification meets or exceeds requirements.",
+          "Key matched skills: github actions, tailwind css, javascript, typescript, next.js."
+        ],
+        "improvement_areas": [
+          "Needs approximately 3 more year(s) of experience."
+        ],
+        "ranking_reason": "Candidate ranked #1 of 5 with an overall score of 57.8%. Strongest area: skill match (100%). Key matched skills: github actions, tailwind css, javascript.",
+        "score_breakdown": {
+          "skill_match": 100.0,
+          "semantic": 0.0,
+          "experience": 0.0,
+          "education": 100.0,
+          "bonus": 100.0
+        }
+      }
+    },
+    {
+      "rank": 2,
+      "name": "Unknown Candidate",
+      "file_name": "resume_alice.pdf",
+      "overall_score": 48.61,
+      "scores": {
+        "skill_match": 30.77,
+        "semantic_similarity": 0.0,
+        "experience": 100.0,
+        "education": 100.0,
+        "bonus": 100.0
+      },
+      "matched_skills": [
+        "express",
+        "github",
+        "sql",
+        "git"
+      ],
+      "missing_skills": [
+        "github actions",
+        "tailwind css",
+        "javascript",
+        "typescript",
+        "next.js",
+        "node.js",
+        "mongodb",
+        "react",
+        "css"
+      ],
+      "extra_skills": [
+        "machine learning",
+        "scikit-learn",
+        "tensorflow",
+        "matplotlib",
+        "fastapi",
+        "vs code",
+        "python",
+        "django",
+        "pandas",
+        "docker",
+        "flask",
+        "numpy",
+        "agile",
+        "scrum",
+        "c",
+        "data engineering"
+      ],
+      "experience_years": 4.0,
+      "explanation": {
+        "experience_assessment": "Meets experience requirement: 4.0 years (required: 3+ years).",
+        "strengths": [
+          "Experience level meets or exceeds requirements.",
+          "Education qualification meets or exceeds requirements.",
+          "Key matched skills: express, github, sql, git."
+        ],
+        "improvement_areas": [
+          "Missing 9 required skills including: github actions, tailwind css, javascript."
+        ],
+        "ranking_reason": "Candidate ranked #2 of 5 with an overall score of 48.6%. Strongest area: experience (100%). Key matched skills: express, github, sql. Experience: 4.0 years.",
+        "score_breakdown": {
+          "skill_match": 30.77,
+          "semantic": 0.0,
+          "experience": 100.0,
+          "education": 100.0,
+          "bonus": 100.0
+        }
+      }
+    },
+    {
+      "rank": 3,
+      "name": "Unknown Candidate",
+      "file_name": "resume_dave.pdf",
+      "overall_score": 47.94,
+      "scores": {
+        "skill_match": 30.77,
+        "semantic_similarity": 0.0,
+        "experience": 100.0,
+        "education": 100.0,
+        "bonus": 100.0
+      },
+      "matched_skills": [
+        "github actions",
+        "github",
+        "sql",
+        "git"
+      ],
+      "missing_skills": [
+        "tailwind css",
+        "javascript",
+        "typescript",
+        "next.js",
+        "node.js",
+        "express",
+        "mongodb",
+        "react",
+        "css"
+      ],
+      "extra_skills": [
+        "elasticsearch",
+        "microservices",
+        "google cloud",
+        "powershell",
+        "kubernetes",
+        "monitoring",
+        "prometheus",
+        "cassandra",
+        "terraform",
+        "dynamodb",
+        "research",
+        "ansible",
+        "jenkins",
+        "grafana",
+        "python",
+        "docker",
+        "redis",
+        "azure",
+        "linux",
+        "bash",
+        "aws",
+        "go"
+      ],
+      "experience_years": 12.0,
+      "explanation": {
+        "experience_assessment": "Meets experience requirement: 12.0 years (required: 3+ years).",
+        "strengths": [
+          "Experience level meets or exceeds requirements.",
+          "Education qualification meets or exceeds requirements.",
+          "Key matched skills: github actions, github, sql, git."
+        ],
+        "improvement_areas": [
+          "Missing 9 required skills including: tailwind css, javascript, typescript."
+        ],
+        "ranking_reason": "Candidate ranked #3 of 5 with an overall score of 47.9%. Strongest area: experience (100%). Key matched skills: github actions, github, sql. Experience: 12.0 years.",
+        "score_breakdown": {
+          "skill_match": 30.77,
+          "semantic": 0.0,
+          "experience": 100.0,
+          "education": 100.0,
+          "bonus": 100.0
+        }
+      }
+    },
+    {
+      "rank": 4,
+      "name": "Unknown Candidate",
+      "file_name": "resume_bob.pdf",
+      "overall_score": 44.61,
+      "scores": {
+        "skill_match": 23.08,
+        "semantic_similarity": 0.0,
+        "experience": 100.0,
+        "education": 100.0,
+        "bonus": 100.0
+      },
+      "matched_skills": [
+        "github",
+        "sql",
+        "git"
+      ],
+      "missing_skills": [
+        "github actions",
+        "tailwind css",
+        "javascript",
+        "typescript",
+        "next.js",
+        "node.js",
+        "express",
+        "mongodb",
+        "react",
+        "css"
+      ],
+      "extra_skills": [
+        "data visualization",
+        "machine learning",
+        "neural networks",
+        "deep learning",
+        "data analysis",
+        "research",
+        "pytorch",
+        "jupyter",
+        "python",
+        "keras",
+        "linux",
+        "r",
+        "statistics",
+        "time series analysis",
+        "natural language processing"
+      ],
+      "experience_years": 3.0,
+      "explanation": {
+        "experience_assessment": "Meets experience requirement: 3.0 years (required: 3+ years).",
+        "strengths": [
+          "Experience level meets or exceeds requirements.",
+          "Education qualification meets or exceeds requirements.",
+          "Key matched skills: github, sql, git."
+        ],
+        "improvement_areas": [
+          "Missing 10 required skills including: github actions, tailwind css, javascript."
+        ],
+        "ranking_reason": "Candidate ranked #4 of 5 with an overall score of 44.6%. Strongest area: experience (100%). Key matched skills: github, sql, git. Experience: 3.0 years.",
+        "score_breakdown": {
+          "skill_match": 23.08,
+          "semantic": 0.0,
+          "experience": 100.0,
+          "education": 100.0,
+          "bonus": 100.0
+        }
+      }
+    },
+    {
+      "rank": 5,
+      "name": "Unknown Candidate",
+      "file_name": "resume_eve.pdf",
+      "overall_score": 31.15,
+      "scores": {
+        "skill_match": 46.15,
+        "semantic_similarity": 0.0,
+        "experience": 0.0,
+        "education": 70.0,
+        "bonus": 80.0
+      },
+      "matched_skills": [
+        "tailwind css",
+        "javascript",
+        "github",
+        "sql",
+        "git",
+        "css"
+      ],
+      "missing_skills": [
+        "github actions",
+        "typescript",
+        "next.js",
+        "node.js",
+        "express",
+        "mongodb",
+        "react"
+      ],
+      "extra_skills": [
+        "vs code",
+        "python",
+        "django",
+        "sqlite"
+      ],
+      "experience_years": 0.0,
+      "explanation": {
+        "experience_assessment": "Below experience requirement: 0.0 years (required: 3+ years).",
+        "strengths": [
+          "Key matched skills: tailwind css, javascript, github, sql, git."
+        ],
+        "improvement_areas": [
+          "Missing 7 required skills including: github actions, typescript, next.js.",
+          "Needs approximately 3 more year(s) of experience."
+        ],
+        "ranking_reason": "Candidate ranked #5 of 5 with an overall score of 31.1%. Strongest area: education (70%). Key matched skills: tailwind css, javascript, github.",
+        "score_breakdown": {
+          "skill_match": 46.15,
+          "semantic": 0.0,
+          "experience": 0.0,
+          "education": 70.0,
+          "bonus": 80.0
+        }
+      }
+    }
+  ]
+}

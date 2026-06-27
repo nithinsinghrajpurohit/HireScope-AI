@@ -1,0 +1,352 @@
+{
+  "timestamp": "2026-06-07T14:32:03.216439",
+  "job_description": {
+    "title": "Machine Learning Engineer",
+    "required_skills": [
+      "machine learning",
+      "scikit-learn",
+      "tensorflow",
+      "fastapi",
+      "pytorch",
+      "python",
+      "docker",
+      "flask",
+      "sql",
+      "git",
+      "r",
+      "data analysis"
+    ],
+    "preferred_skills": [],
+    "min_experience": 3.0,
+    "education_level": "master",
+    "seniority": "mid"
+  },
+  "total_candidates": 5,
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "Unknown Candidate",
+      "file_name": "resume_bob.txt",
+      "overall_score": 85.16,
+      "scores": {
+        "skill_match": 91.67,
+        "semantic_similarity": 53.96,
+        "experience": 100.0,
+        "education": 100.0,
+        "bonus": 100.0
+      },
+      "matched_skills": [
+        "machine learning",
+        "scikit-learn",
+        "tensorflow",
+        "fastapi",
+        "pytorch",
+        "python",
+        "flask",
+        "sql",
+        "git",
+        "r",
+        "data analysis"
+      ],
+      "missing_skills": [
+        "docker"
+      ],
+      "extra_skills": [
+        "data visualization",
+        "research",
+        "jupyter",
+        "linux",
+        "time series analysis",
+        "natural language processing"
+      ],
+      "experience_years": 3.0,
+      "explanation": {
+        "experience_assessment": "Meets experience requirement: 3.0 years (required: 3+ years).",
+        "strengths": [
+          "Strong skill match (92%) with 11 matching skills.",
+          "Experience level meets or exceeds requirements.",
+          "Education qualification meets or exceeds requirements.",
+          "Key matched skills: machine learning, scikit-learn, tensorflow, fastapi, pytorch."
+        ],
+        "improvement_areas": [
+          "Missing skills: docker.",
+          "Gain experience with docker."
+        ],
+        "ranking_reason": "Candidate ranked #1 of 5 with an overall score of 85.2%. Strongest area: experience (100%). Key matched skills: machine learning, scikit-learn, tensorflow. Experience: 3.0 years.",
+        "score_breakdown": {
+          "skill_match": 91.67,
+          "semantic": 53.96,
+          "experience": 100.0,
+          "education": 100.0,
+          "bonus": 100.0
+        }
+      }
+    },
+    {
+      "rank": 2,
+      "name": "Unknown Candidate",
+      "file_name": "resume_alice.txt",
+      "overall_score": 81.11,
+      "scores": {
+        "skill_match": 83.33,
+        "semantic_similarity": 63.1,
+        "experience": 100.0,
+        "education": 70.0,
+        "bonus": 100.0
+      },
+      "matched_skills": [
+        "machine learning",
+        "scikit-learn",
+        "tensorflow",
+        "fastapi",
+        "python",
+        "docker",
+        "flask",
+        "sql",
+        "git",
+        "data analysis"
+      ],
+      "missing_skills": [
+        "pytorch",
+        "r"
+      ],
+      "extra_skills": [
+        "matplotlib",
+        "vs code",
+        "agile",
+        "scrum",
+        "c",
+        "data engineering"
+      ],
+      "experience_years": 4.0,
+      "explanation": {
+        "experience_assessment": "Meets experience requirement: 4.0 years (required: 3+ years).",
+        "strengths": [
+          "Strong skill match (83%) with 10 matching skills.",
+          "Good semantic relevance to the job description.",
+          "Experience level meets or exceeds requirements.",
+          "Key matched skills: machine learning, scikit-learn, tensorflow, fastapi, python."
+        ],
+        "improvement_areas": [
+          "Missing skills: pytorch, r.",
+          "Gain experience with pytorch.",
+          "Gain experience with r."
+        ],
+        "ranking_reason": "Candidate ranked #2 of 5 with an overall score of 81.1%. Strongest area: experience (100%). Key matched skills: machine learning, scikit-learn, tensorflow. Experience: 4.0 years.",
+        "score_breakdown": {
+          "skill_match": 83.33,
+          "semantic": 63.1,
+          "experience": 100.0,
+          "education": 70.0,
+          "bonus": 100.0
+        }
+      }
+    },
+    {
+      "rank": 3,
+      "name": "Unknown Candidate",
+      "file_name": "resume_dave.txt",
+      "overall_score": 70.14,
+      "scores": {
+        "skill_match": 66.67,
+        "semantic_similarity": 33.9,
+        "experience": 100.0,
+        "education": 100.0,
+        "bonus": 100.0
+      },
+      "matched_skills": [
+        "scikit-learn",
+        "fastapi",
+        "python",
+        "docker",
+        "flask",
+        "sql",
+        "git",
+        "data analysis"
+      ],
+      "missing_skills": [
+        "machine learning",
+        "tensorflow",
+        "pytorch",
+        "r"
+      ],
+      "extra_skills": [
+        "elasticsearch",
+        "microservices",
+        "google cloud",
+        "powershell",
+        "monitoring",
+        "prometheus",
+        "cassandra",
+        "terraform",
+        "dynamodb",
+        "research",
+        "ansible",
+        "jenkins",
+        "grafana",
+        "redis",
+        "azure",
+        "linux",
+        "bash",
+        "aws",
+        "go",
+        "ci/cd"
+      ],
+      "experience_years": 12.0,
+      "explanation": {
+        "experience_assessment": "Meets experience requirement: 12.0 years (required: 3+ years).",
+        "strengths": [
+          "Good skill overlap (67%) with key requirements.",
+          "Experience level meets or exceeds requirements.",
+          "Education qualification meets or exceeds requirements.",
+          "Key matched skills: scikit-learn, fastapi, python, docker, flask."
+        ],
+        "improvement_areas": [
+          "Missing 4 required skills including: machine learning, tensorflow, pytorch.",
+          "Gain experience with machine learning.",
+          "Gain experience with tensorflow.",
+          "Gain experience with pytorch.",
+          "Gain experience with r.",
+          "Tailor resume language to match the job description more closely (use similar terminology and keywords)."
+        ],
+        "ranking_reason": "Candidate ranked #3 of 5 with an overall score of 70.1%. Strongest area: experience (100%). Key matched skills: scikit-learn, fastapi, python. Experience: 12.0 years.",
+        "score_breakdown": {
+          "skill_match": 66.67,
+          "semantic": 33.9,
+          "experience": 100.0,
+          "education": 100.0,
+          "bonus": 100.0
+        }
+      }
+    },
+    {
+      "rank": 4,
+      "name": "Unknown Candidate",
+      "file_name": "resume_carol.txt",
+      "overall_score": 62.14,
+      "scores": {
+        "skill_match": 50.0,
+        "semantic_similarity": 40.55,
+        "experience": 100.0,
+        "education": 70.0,
+        "bonus": 100.0
+      },
+      "matched_skills": [
+        "fastapi",
+        "docker",
+        "flask",
+        "sql",
+        "git",
+        "data analysis"
+      ],
+      "missing_skills": [
+        "machine learning",
+        "scikit-learn",
+        "tensorflow",
+        "pytorch",
+        "python",
+        "r"
+      ],
+      "extra_skills": [
+        "github actions",
+        "tailwind css",
+        "javascript",
+        "typescript",
+        "bootstrap",
+        "next.js",
+        "node.js",
+        "express",
+        "mongodb",
+        "react",
+        "html",
+        "css",
+        "ci/cd"
+      ],
+      "experience_years": 3.0,
+      "explanation": {
+        "experience_assessment": "Meets experience requirement: 3.0 years (required: 3+ years).",
+        "strengths": [
+          "Experience level meets or exceeds requirements.",
+          "Key matched skills: fastapi, docker, flask, sql, git."
+        ],
+        "improvement_areas": [
+          "Missing 6 required skills including: machine learning, scikit-learn, tensorflow.",
+          "Gain experience with machine learning.",
+          "Gain experience with scikit-learn.",
+          "Gain experience with tensorflow.",
+          "Gain experience with pytorch.",
+          "Gain experience with python."
+        ],
+        "ranking_reason": "Candidate ranked #4 of 5 with an overall score of 62.1%. Strongest area: experience (100%). Key matched skills: fastapi, docker, flask. Experience: 3.0 years.",
+        "score_breakdown": {
+          "skill_match": 50.0,
+          "semantic": 40.55,
+          "experience": 100.0,
+          "education": 70.0,
+          "bonus": 100.0
+        }
+      }
+    },
+    {
+      "rank": 5,
+      "name": "Unknown Candidate",
+      "file_name": "resume_eve.txt",
+      "overall_score": 45.3,
+      "scores": {
+        "skill_match": 58.33,
+        "semantic_similarity": 51.87,
+        "experience": 0.0,
+        "education": 50.0,
+        "bonus": 80.0
+      },
+      "matched_skills": [
+        "scikit-learn",
+        "fastapi",
+        "python",
+        "flask",
+        "sql",
+        "git",
+        "data analysis"
+      ],
+      "missing_skills": [
+        "machine learning",
+        "tensorflow",
+        "pytorch",
+        "docker",
+        "r"
+      ],
+      "extra_skills": [
+        "vs code",
+        "sqlite",
+        "html",
+        "css"
+      ],
+      "experience_years": 0.0,
+      "explanation": {
+        "experience_assessment": "Below experience requirement: 0.0 years (required: 3+ years).",
+        "strengths": [
+          "Key matched skills: scikit-learn, fastapi, python, flask, sql."
+        ],
+        "improvement_areas": [
+          "Missing 5 required skills including: machine learning, tensorflow, pytorch.",
+          "Needs approximately 3 more year(s) of experience.",
+          "Gain experience with machine learning.",
+          "Gain experience with tensorflow.",
+          "Gain experience with pytorch.",
+          "Gain experience with docker.",
+          "Gain experience with r.",
+          "Acquire approximately 3 more years of relevant industry experience.",
+          "Consider pursuing a master degree or equivalent certification."
+        ],
+        "ranking_reason": "Candidate ranked #5 of 5 with an overall score of 45.3%. Key matched skills: scikit-learn, fastapi, python.",
+        "score_breakdown": {
+          "skill_match": 58.33,
+          "semantic": 51.87,
+          "experience": 0.0,
+          "education": 50.0,
+          "bonus": 80.0
+        }
+      }
+    }
+  ]
+}

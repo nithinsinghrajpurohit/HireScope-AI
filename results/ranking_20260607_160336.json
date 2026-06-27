@@ -1,0 +1,91 @@
+{
+  "timestamp": "2026-06-07T16:03:36.587506",
+  "job_description": {
+    "title": "Full Stack Web Developer",
+    "required_skills": [
+      "github actions",
+      "tailwind css",
+      "javascript",
+      "typescript",
+      "next.js",
+      "node.js",
+      "express",
+      "mongodb",
+      "github",
+      "react",
+      "sql",
+      "git",
+      "css"
+    ],
+    "preferred_skills": [],
+    "min_experience": 3.0,
+    "education_level": "bachelor",
+    "seniority": "mid"
+  },
+  "total_candidates": 1,
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "B NITHIN SINGH RAJPUROHITH",
+      "file_name": "Resume_B_Nithin_Singh_Rajpurohith.pdf",
+      "overall_score": 69.57,
+      "scores": {
+        "skill_match": 100.0,
+        "semantic_similarity": 58.3,
+        "experience": 0.0,
+        "education": 100.0,
+        "bonus": 100.0
+      },
+      "matched_skills": [
+        "github actions",
+        "tailwind css",
+        "javascript",
+        "typescript",
+        "next.js",
+        "node.js",
+        "express",
+        "mongodb",
+        "github",
+        "react",
+        "sql",
+        "git",
+        "css"
+      ],
+      "missing_skills": [],
+      "extra_skills": [
+        "machine learning",
+        "problem solving",
+        "time management",
+        "communication",
+        "leadership",
+        "vs code",
+        "python",
+        "java",
+        "c",
+        "artificial intelligence",
+        "django"
+      ],
+      "experience_years": 0.0,
+      "explanation": {
+        "experience_assessment": "Below experience requirement: 0.0 years (required: 3+ years).",
+        "strengths": [
+          "Strong skill match (100%) with 13 matching skills.",
+          "Education qualification meets or exceeds requirements.",
+          "Key matched skills: github actions, tailwind css, javascript, typescript, next.js."
+        ],
+        "improvement_areas": [
+          "Needs approximately 3 more year(s) of experience.",
+          "Acquire approximately 3 more years of relevant industry experience."
+        ],
+        "ranking_reason": "Candidate ranked #1 of 1 with an overall score of 69.6%. Strongest area: skill match (100%). Key matched skills: github actions, tailwind css, javascript.",
+        "score_breakdown": {
+          "skill_match": 100.0,
+          "semantic": 58.3,
+          "experience": 0.0,
+          "education": 100.0,
+          "bonus": 100.0
+        }
+      }
+    }
+  ]
+}

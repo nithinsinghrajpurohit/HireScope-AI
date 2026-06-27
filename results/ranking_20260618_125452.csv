@@ -1,0 +1,6 @@
+Rank,Candidate,File,Overall Score,Skill Match,Semantic Similarity,Experience Score,Education Score,Matched Skills,Missing Skills,Experience (Years)
+1,DAVE MILLER,resume_dave.txt,80.82,100.0,0.0,100.0,100.0,"kubernetes, cassandra, terraform, ansible, jenkins, python, docker, devops, redis, linux, bash, aws, go, ci/cd",None,12.0
+2,CAROL DAVIS,resume_carol.txt,39.48,50.0,0.0,37.5,60.0,"kubernetes, terraform, ansible, jenkins, docker, devops, ci/cd","cassandra, python, redis, linux, bash, aws, go",3.0
+3,ALICE SMITH,resume_alice.txt,36.02,35.71,0.0,50.0,60.0,"kubernetes, python, docker, devops, go","cassandra, terraform, ansible, jenkins, redis, linux, bash, aws, ci/cd",4.0
+4,"ROBERT ""BOB"" JOHNSON",resume_bob.txt,28.49,21.43,0.0,37.5,70.0,"python, linux, bash","kubernetes, cassandra, terraform, ansible, jenkins, docker, devops, redis, aws, go, ci/cd",3.0
+5,EVE WHITE,resume_eve.txt,12.53,7.14,0.0,0.0,40.0,python,"kubernetes, cassandra, terraform, ansible, jenkins, docker, devops, redis, linux, bash, aws, go, ci/cd",0.0

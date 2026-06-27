@@ -1,0 +1,380 @@
+{
+  "timestamp": "2026-06-18T12:54:09.840798",
+  "job_description": {
+    "title": "Cloud DevOps Architect",
+    "required_skills": [
+      "kubernetes",
+      "cassandra",
+      "terraform",
+      "ansible",
+      "jenkins",
+      "python",
+      "docker",
+      "devops",
+      "redis",
+      "linux",
+      "bash",
+      "aws",
+      "go",
+      "ci/cd"
+    ],
+    "preferred_skills": [],
+    "min_experience": 8.0,
+    "education_level": "phd",
+    "seniority": "lead"
+  },
+  "total_candidates": 5,
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "DAVE MILLER",
+      "file_name": "resume_dave.txt",
+      "overall_score": 93.58,
+      "scores": {
+        "skill_match": 100.0,
+        "semantic_similarity": 74.34,
+        "experience": 100.0,
+        "education": 100.0,
+        "bonus": 100.0
+      },
+      "matched_skills": [
+        "kubernetes",
+        "cassandra",
+        "terraform",
+        "ansible",
+        "jenkins",
+        "python",
+        "docker",
+        "devops",
+        "redis",
+        "linux",
+        "bash",
+        "aws",
+        "go",
+        "ci/cd"
+      ],
+      "missing_skills": [],
+      "extra_skills": [
+        "google cloud",
+        "powershell",
+        "sql server",
+        "dynamodb",
+        "azure",
+        "sql",
+        "elasticsearch",
+        "monitoring",
+        "prometheus",
+        "grafana",
+        "gitlab"
+      ],
+      "experience_years": 12.0,
+      "explanation": {
+        "experience_assessment": "Meets experience requirement: 12.0 years (required: 8+ years).",
+        "strengths": [
+          "Strong skill match (100%) with 14 matching skills.",
+          "Good semantic relevance to the job description.",
+          "Experience level meets or exceeds requirements.",
+          "Education qualification meets or exceeds requirements.",
+          "Key matched skills: kubernetes, cassandra, terraform, ansible, jenkins."
+        ],
+        "improvement_areas": [
+          "No significant gaps identified."
+        ],
+        "ranking_reason": "Candidate ranked #1 of 5 with an overall score of 93.6%. Strongest area: skill match (100%). Key matched skills: kubernetes, cassandra, terraform. Experience: 12.0 years.",
+        "score_breakdown": {
+          "skill_match": 100.0,
+          "semantic": 74.34,
+          "experience": 100.0,
+          "education": 100.0,
+          "bonus": 100.0
+        }
+      }
+    },
+    {
+      "rank": 2,
+      "name": "CAROL DAVIS",
+      "file_name": "resume_carol.txt",
+      "overall_score": 51.19,
+      "scores": {
+        "skill_match": 50.0,
+        "semantic_similarity": 50.75,
+        "experience": 37.5,
+        "education": 60.0,
+        "bonus": 100.0
+      },
+      "matched_skills": [
+        "kubernetes",
+        "terraform",
+        "ansible",
+        "jenkins",
+        "docker",
+        "devops",
+        "ci/cd"
+      ],
+      "missing_skills": [
+        "cassandra",
+        "python",
+        "redis",
+        "linux",
+        "bash",
+        "aws",
+        "go"
+      ],
+      "extra_skills": [
+        "tailwind css",
+        "javascript",
+        "typescript",
+        "next.js",
+        "node.js",
+        "express",
+        "mongodb",
+        "github",
+        "react",
+        "mysql",
+        "sql",
+        "git",
+        "css",
+        "html",
+        "rest api",
+        "bootstrap"
+      ],
+      "experience_years": 3.0,
+      "explanation": {
+        "experience_assessment": "Below experience requirement: 3.0 years (required: 8+ years).",
+        "strengths": [
+          "Key matched skills: kubernetes, terraform, ansible, jenkins, docker."
+        ],
+        "improvement_areas": [
+          "Missing 7 required skills including: cassandra, python, redis.",
+          "Needs approximately 5 more year(s) of experience.",
+          "Gain experience with cassandra.",
+          "Gain experience with python.",
+          "Gain experience with redis.",
+          "Gain experience with linux.",
+          "Gain experience with bash.",
+          "Acquire approximately 5 more years of relevant industry experience.",
+          "Consider pursuing a phd degree or equivalent certification."
+        ],
+        "ranking_reason": "Candidate ranked #2 of 5 with an overall score of 51.2%. Key matched skills: kubernetes, terraform, ansible. Experience: 3.0 years.",
+        "score_breakdown": {
+          "skill_match": 50.0,
+          "semantic": 50.75,
+          "experience": 37.5,
+          "education": 60.0,
+          "bonus": 100.0
+        }
+      }
+    },
+    {
+      "rank": 3,
+      "name": "ALICE SMITH",
+      "file_name": "resume_alice.txt",
+      "overall_score": 48.2,
+      "scores": {
+        "skill_match": 35.71,
+        "semantic_similarity": 51.67,
+        "experience": 50.0,
+        "education": 60.0,
+        "bonus": 100.0
+      },
+      "matched_skills": [
+        "kubernetes",
+        "python",
+        "docker",
+        "devops",
+        "go"
+      ],
+      "missing_skills": [
+        "cassandra",
+        "terraform",
+        "ansible",
+        "jenkins",
+        "redis",
+        "linux",
+        "bash",
+        "aws",
+        "ci/cd"
+      ],
+      "extra_skills": [
+        "machine learning",
+        "scikit-learn",
+        "tensorflow",
+        "vs code",
+        "sql",
+        "git",
+        "c",
+        "postgresql",
+        "agile",
+        "scrum",
+        "rest api",
+        "data engineering",
+        "matplotlib"
+      ],
+      "experience_years": 4.0,
+      "explanation": {
+        "experience_assessment": "Below experience requirement: 4.0 years (required: 8+ years).",
+        "strengths": [
+          "Key matched skills: kubernetes, python, docker, devops, go."
+        ],
+        "improvement_areas": [
+          "Missing 9 required skills including: cassandra, terraform, ansible.",
+          "Needs approximately 4 more year(s) of experience.",
+          "Gain experience with cassandra.",
+          "Gain experience with terraform.",
+          "Gain experience with ansible.",
+          "Gain experience with jenkins.",
+          "Gain experience with redis.",
+          "Acquire approximately 4 more years of relevant industry experience.",
+          "Consider pursuing a phd degree or equivalent certification."
+        ],
+        "ranking_reason": "Candidate ranked #3 of 5 with an overall score of 48.2%. Key matched skills: kubernetes, python, docker. Experience: 4.0 years.",
+        "score_breakdown": {
+          "skill_match": 35.71,
+          "semantic": 51.67,
+          "experience": 50.0,
+          "education": 60.0,
+          "bonus": 100.0
+        }
+      }
+    },
+    {
+      "rank": 4,
+      "name": "ROBERT \"BOB\" JOHNSON",
+      "file_name": "resume_bob.txt",
+      "overall_score": 36.75,
+      "scores": {
+        "skill_match": 21.43,
+        "semantic_similarity": 34.72,
+        "experience": 37.5,
+        "education": 70.0,
+        "bonus": 100.0
+      },
+      "matched_skills": [
+        "python",
+        "linux",
+        "bash"
+      ],
+      "missing_skills": [
+        "kubernetes",
+        "cassandra",
+        "terraform",
+        "ansible",
+        "jenkins",
+        "docker",
+        "devops",
+        "redis",
+        "aws",
+        "go",
+        "ci/cd"
+      ],
+      "extra_skills": [
+        "neural networks",
+        "deep learning",
+        "postgresql",
+        "pytorch",
+        "jupyter",
+        "keras",
+        "mysql",
+        "sql",
+        "git",
+        "r",
+        "data analysis",
+        "machine learning",
+        "data visualization",
+        "statistics",
+        "natural language processing"
+      ],
+      "experience_years": 3.0,
+      "explanation": {
+        "experience_assessment": "Below experience requirement: 3.0 years (required: 8+ years).",
+        "strengths": [
+          "Key matched skills: python, linux, bash."
+        ],
+        "improvement_areas": [
+          "Missing 11 required skills including: kubernetes, cassandra, terraform.",
+          "Needs approximately 5 more year(s) of experience.",
+          "Gain experience with kubernetes.",
+          "Gain experience with cassandra.",
+          "Gain experience with terraform.",
+          "Gain experience with ansible.",
+          "Gain experience with jenkins.",
+          "Acquire approximately 5 more years of relevant industry experience.",
+          "Tailor resume language to match the job description more closely (use similar terminology and keywords)."
+        ],
+        "ranking_reason": "Candidate ranked #4 of 5 with an overall score of 36.8%. Strongest area: education (70%). Key matched skills: python, linux, bash. Experience: 3.0 years.",
+        "score_breakdown": {
+          "skill_match": 21.43,
+          "semantic": 34.72,
+          "experience": 37.5,
+          "education": 70.0,
+          "bonus": 100.0
+        }
+      }
+    },
+    {
+      "rank": 5,
+      "name": "EVE WHITE",
+      "file_name": "resume_eve.txt",
+      "overall_score": 23.66,
+      "scores": {
+        "skill_match": 7.14,
+        "semantic_similarity": 47.2,
+        "experience": 0.0,
+        "education": 40.0,
+        "bonus": 100.0
+      },
+      "matched_skills": [
+        "python"
+      ],
+      "missing_skills": [
+        "kubernetes",
+        "cassandra",
+        "terraform",
+        "ansible",
+        "jenkins",
+        "docker",
+        "devops",
+        "redis",
+        "linux",
+        "bash",
+        "aws",
+        "go",
+        "ci/cd"
+      ],
+      "extra_skills": [
+        "vs code",
+        "html",
+        "sql",
+        "git",
+        "css",
+        "sqlite"
+      ],
+      "experience_years": 0.0,
+      "explanation": {
+        "experience_assessment": "Below experience requirement: 0.0 years (required: 8+ years).",
+        "strengths": [
+          "Key matched skills: python."
+        ],
+        "improvement_areas": [
+          "Missing 13 required skills including: kubernetes, cassandra, terraform.",
+          "Needs approximately 8 more year(s) of experience.",
+          "Gain experience with kubernetes.",
+          "Gain experience with cassandra.",
+          "Gain experience with terraform.",
+          "Gain experience with ansible.",
+          "Gain experience with jenkins.",
+          "Acquire approximately 8 more years of relevant industry experience.",
+          "Consider pursuing a phd degree or equivalent certification."
+        ],
+        "ranking_reason": "Candidate ranked #5 of 5 with an overall score of 23.7%. Key matched skills: python.",
+        "score_breakdown": {
+          "skill_match": 7.14,
+          "semantic": 47.2,
+          "experience": 0.0,
+          "education": 40.0,
+          "bonus": 100.0
+        }
+      }
+    }
+  ]
+}

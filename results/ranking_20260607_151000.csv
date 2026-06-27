@@ -1,0 +1,6 @@
+Rank,Candidate,File,Overall Score,Skill Match,Semantic Similarity,Experience Score,Education Score,Matched Skills,Missing Skills,Experience (Years)
+1,"ROBERT ""BOB"" JOHNSON",resume_bob.txt,85.16,91.67,53.96,100.0,100.0,"machine learning, scikit-learn, tensorflow, fastapi, pytorch, python, flask, sql, git, r, data analysis",docker,3.0
+2,ALICE SMITH,resume_alice.txt,81.11,83.33,63.1,100.0,70.0,"machine learning, scikit-learn, tensorflow, fastapi, python, docker, flask, sql, git, data analysis","pytorch, r",4.0
+3,DAVE MILLER,resume_dave.txt,70.14,66.67,33.9,100.0,100.0,"scikit-learn, fastapi, python, docker, flask, sql, git, data analysis","machine learning, tensorflow, pytorch, r",12.0
+4,CAROL DAVIS,resume_carol.txt,62.14,50.0,40.55,100.0,70.0,"fastapi, docker, flask, sql, git, data analysis","machine learning, scikit-learn, tensorflow, pytorch, python, r",3.0
+5,EVE WHITE,resume_eve.txt,45.3,58.33,51.87,0.0,50.0,"scikit-learn, fastapi, python, flask, sql, git, data analysis","machine learning, tensorflow, pytorch, docker, r",0.0

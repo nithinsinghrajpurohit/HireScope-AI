@@ -177,15 +177,11 @@ def main():
     rank_time = time.time() - rank_start
     print(f"  ✓ Ranked top {len(ranked)} candidates in {rank_time:.1f}s")
 
-    if args.verbose and ranked:
-        print("\n  Top 10 candidates:")
-        for entry in ranked[:10]:
+    if ranked:
+        print("\ncandidate_id\trank\tscore\treasoning")
+        for entry in ranked:
             print(
-                f"    #{entry['rank']:3d} | {entry['candidate_id']} | "
-                f"Score: {entry['composite_score']:.4f} | "
-                f"{entry['current_title']:30s} | "
-                f"{entry['years_experience']:.1f} yrs | "
-                f"Skills: {len(entry['matched_skills'])}"
+                f"{entry['candidate_id']}\t{entry['rank']}\t{entry['composite_score']:.4f}\t{entry['reasoning']}"
             )
 
     # ── Write submission ─────────────────────────────────────────────

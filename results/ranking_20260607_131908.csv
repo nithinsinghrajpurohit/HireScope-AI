@@ -1,0 +1,6 @@
+Rank,Candidate,File,Overall Score,Skill Match,Semantic Similarity,Experience Score,Education Score,Matched Skills,Missing Skills,Experience (Years)
+1,Unknown Candidate,Resume_B_Nithin_Singh_Rajpurohith.pdf,69.57,100.0,58.3,0.0,100.0,"github actions, tailwind css, javascript, typescript, next.js, node.js, express, mongodb, github, react, sql, git, css",None,0.0
+2,Unknown Candidate,resume_alice.pdf,59.13,30.77,47.3,100.0,100.0,"express, github, sql, git","github actions, tailwind css, javascript, typescript, next.js, node.js, mongodb, react, css",4.0
+3,Unknown Candidate,resume_dave.pdf,55.42,30.77,32.46,100.0,100.0,"github actions, github, sql, git","tailwind css, javascript, typescript, next.js, node.js, express, mongodb, react, css",12.0
+4,Unknown Candidate,resume_bob.pdf,53.37,23.08,36.54,100.0,100.0,"github, sql, git","github actions, tailwind css, javascript, typescript, next.js, node.js, express, mongodb, react, css",3.0
+5,Unknown Candidate,resume_eve.pdf,41.95,46.15,49.98,0.0,70.0,"tailwind css, javascript, github, sql, git, css","github actions, typescript, next.js, node.js, express, mongodb, react",0.0

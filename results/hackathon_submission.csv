@@ -1,0 +1,36 @@
+candidate_id,rank,score,reasoning
+CAND_0000001,1,0.4768,"Backend Engineer (6.9 yrs exp) matched 1 core skills (incl. NLP). Key signals: response_rate=0.34, github_activity=9, assessments=4."
+CAND_0000031,2,0.4667,"Recommendation Systems Engineer (6.0 yrs exp) matched 1 core skills (incl. Machine Learning). Key signals: response_rate=0.91, github_activity=33, assessments=4."
+CAND_0000010,3,0.4156,"Data Engineer (4.6 yrs exp) matched 3 core skills (incl. Python, Object Detection (partial match for computer vision), Elasticsearch). Key signals: response_rate=0.40, github_activity=34, assessments=4."
+CAND_0000027,4,0.4057,"DevOps Engineer (3.9 yrs exp) matched 1 core skills (incl. YOLO (partial match for computer vision)). Key signals: response_rate=0.58, github_activity=39, assessments=3."
+CAND_0000043,5,0.4039,"Cloud Engineer (8.3 yrs exp) matched 2 core skills (incl. OpenCV (partial match for computer vision), Elasticsearch). Key signals: response_rate=0.04."
+CAND_0000014,6,0.3998,"Frontend Engineer (8.4 yrs exp) matched 1 core skills (incl. OpenCV (partial match for computer vision)). Key signals: response_rate=0.80, assessments=1."
+CAND_0000025,7,0.3961,"Frontend Engineer (7.3 yrs exp) no core skills matched. Key signals: response_rate=0.74, assessments=1, open_to_work."
+CAND_0000044,8,0.3759,"Frontend Engineer (5.7 yrs exp) matched 1 core skills (incl. Python). Key signals: response_rate=0.66, github_activity=6."
+CAND_0000024,9,0.3658,"HR Manager (7.5 yrs exp) no core skills matched. Key signals: response_rate=0.78, github_activity=46, assessments=1."
+CAND_0000038,10,0.3635,"Java Developer (6.7 yrs exp) no core skills matched. Key signals: response_rate=0.20, github_activity=38, open_to_work."
+CAND_0000007,11,0.3588,Civil Engineer (5.5 yrs exp) no core skills matched. Key signals: response_rate=0.62.
+CAND_0000023,12,0.3555,"Software Engineer (3.7 yrs exp) no core skills matched. Key signals: response_rate=0.57, github_activity=48."
+CAND_0000046,13,0.3542,"Mechanical Engineer (7.8 yrs exp) no core skills matched. Key signals: response_rate=0.41, github_activity=21."
+CAND_0000020,14,0.3530,"Mechanical Engineer (6.3 yrs exp) no core skills matched. Key signals: response_rate=0.55, assessments=1."
+CAND_0000016,15,0.3468,"Accountant (5.3 yrs exp) no core skills matched. Key signals: response_rate=0.64, github_activity=43, open_to_work."
+CAND_0000018,16,0.3434,Frontend Engineer (6.6 yrs exp) no core skills matched. Key signals: response_rate=0.16.
+CAND_0000048,17,0.3434,"Mobile Developer (9.7 yrs exp) no core skills matched. Key signals: response_rate=0.65, open_to_work."
+CAND_0000033,18,0.3372,"Graphic Designer (8.6 yrs exp) no core skills matched. Key signals: response_rate=0.08, github_activity=38, open_to_work."
+CAND_0000042,19,0.3337,HR Manager (5.0 yrs exp) matched 1 core skills (incl. YOLO (partial match for computer vision)). Key signals: response_rate=0.58.
+CAND_0000005,20,0.3320,"Accountant (11.0 yrs exp) no core skills matched. Key signals: response_rate=0.37, open_to_work."
+CAND_0000029,21,0.3292,"Business Analyst (7.2 yrs exp) no core skills matched. Key signals: response_rate=0.12, github_activity=42."
+CAND_0000035,22,0.3288,Full Stack Developer (4.3 yrs exp) no core skills matched. Key signals: response_rate=0.34.
+CAND_0000045,23,0.3206,"Project Manager (12.2 yrs exp) no core skills matched. Key signals: response_rate=0.62, open_to_work."
+CAND_0000041,24,0.3189,"Operations Manager (13.7 yrs exp) no core skills matched. Key signals: response_rate=0.07, open_to_work."
+CAND_0000050,25,0.3036,"Business Analyst (13.5 yrs exp) no core skills matched. Key signals: response_rate=0.42, github_activity=45, assessments=1."
+CAND_0000037,26,0.3026,Business Analyst (14.3 yrs exp) no core skills matched. Key signals: response_rate=0.78.
+CAND_0000002,27,0.2860,"Operations Manager (12.5 yrs exp) no core skills matched. Key signals: response_rate=0.29, open_to_work."
+CAND_0000004,28,0.2789,Marketing Manager (3.8 yrs exp) matched 1 core skills (incl. Object Detection (partial match for computer vision)). Key signals: response_rate=0.26.
+CAND_0000049,29,0.2781,Mechanical Engineer (11.8 yrs exp) no core skills matched. Key signals: response_rate=0.59.
+CAND_0000034,30,0.2698,Business Analyst (14.5 yrs exp) no core skills matched. Key signals: response_rate=0.15.
+CAND_0000008,31,0.2612,Operations Manager (3.6 yrs exp) no core skills matched. Key signals: response_rate=0.42.
+CAND_0000047,32,0.2000,Project Manager (2.4 yrs exp) no core skills matched. Key signals: response_rate=0.39.
+CAND_0000028,33,0.1984,Operations Manager (1.1 yrs exp) no core skills matched. Key signals: response_rate=0.14.
+CAND_0000003,34,0.1937,Customer Support (1.1 yrs exp) no core skills matched. Key signals: response_rate=0.46.
+CAND_0000040,35,0.1355,Customer Support (1.6 yrs exp) no core skills matched. Key signals: response_rate=0.46.
